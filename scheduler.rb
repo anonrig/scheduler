@@ -26,14 +26,23 @@ courses = Array.new
 
 items.css('tr').each_slice(2) do |row_pair|
 	lecture = Hash.new
-	isEmpty = row_pair[0].css('th.ddlabel').text != ""
+	isEmpty = row_pair[0].css('th.ddlabel').text
 	
-	if !isEmpty
+	if isEmpty != ""
 		splitted = row_pair[0].css('th.ddlabel').text.split(' - ')
-		lecture['title'] = splitted[0]
-		lecture['courseID'] = splitted[1]
-		lecture['name'] = splitted[2]
-		lecture['section'] = splitted[3]
+		if splitted.count == 4
+			lecture['title'] = splitted[0]
+			lecture['type'] = ""
+			lecture['courseID'] = splitted[1]
+			lecture['name'] = splitted[2]
+			lecture['section'] = splitted[3]
+		else 
+			lecture['title'] = splitted[0]
+			lecture['type'] = splitted[1]
+			lecture['courseID'] = splitted[2]
+			lecture['name'] = splitted[3]
+			lecture['section'] = splitted[4]
+		end
 	end
 	
 	informationList = Array.new
@@ -53,33 +62,30 @@ items.css('tr').each_slice(2) do |row_pair|
 						if dayCount.length == 1
 							whichDays.push(getIndexWeek(dayCount))
 						else
-							p lecture['courseID']
-							p information['location']
-							p information['teacher']
 							dayCount.length.times do |item|
 								whichDays.push(getIndexWeek(dayCount[item]))
 							end
 						end
 						
-						startsMorning = item[1].text.split(' - ')[0].split(' ')[1] == "am"
+						startsMorning = item[1].text.split(' - ')[0].split(' ')[1] 
 						startTimePair = item[1].text.split(' - ')[0].split(' ')[0].split(':')
 						startTimeHour = startTimePair[0].to_i
-						if !startsMorning && startTimeHour != 12
+						if startsMorning != "am" && startTimeHour != 12
 							startTimeHour += 12
 						end
 						startTimeMinute = startTimePair[1].to_i
 						
-						endsMorning = item[1].text.split(' - ')[1].split(' ')[1] == "am"
+						endsMorning = item[1].text.split(' - ')[1].split(' ')[1] 
 						endTimePair = item[1].text.split(' - ')[1].split(' ')[0].split(':')
 						endTimeHour = endTimePair[0].to_i
-						if !endsMorning && endTimeHour != 12
+						if endsMorning != "am" && endTimeHour != 12
 							endTimeHour += 12
 						end
 						endTimeMinute = endTimePair[1].to_i
 
 						whichDays.each do |item|
-							information['startDate'] = Time.local(2014,"jan",item+13,startTimeHour,startTimeMinute,0).to_s
-							information['endDate'] = Time.local(2014,"jan",item+13,endTimeHour,endTimeMinute,0).to_s
+							information['startDate'] = Time.local(2014,"jan",item+13,startTimeHour,startTimeMinute,0).to_i * 1000
+							information['endDate'] = Time.local(2014,"jan",item+13,endTimeHour,endTimeMinute,0).to_i * 1000
 							informationList.push(information)
 						end
 					else
@@ -91,7 +97,7 @@ items.css('tr').each_slice(2) do |row_pair|
 			end
 		end
 		
-		if !isEmpty
+		if isEmpty != ""
 			lecture['informationList'] = informationList
 		end
 	end
