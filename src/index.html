@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="user-scalable=no, initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, width=device-width, height=device-height" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5" media="(device-height: 568px)" />
+        <stylesheets/>
+        <title>Scheduler</title>
+    </head>
+    <body>
+        <div id="fb-root"></div>
+        <div id="bg"></div>
+        <div id="blockerOverlay"></div>
+        <div id="app"></div>
+        <menu class="sidebar">
+            <div class="button search" data-href="#!/search">SEARCH</div>
+            <div class="button schedule">SCHEDULE</div>
+        </menu>
+        <script type="text/javascript">
+            cfg = {};
+            <environment/>
+            <directives/>
+        </script>
+        <scripts/>
+        <script type="text/javascript">
+            var onDeviceReady = function() {
+                new sc.Bootstrapper();
+            };
+
+            document.addEventListener('deviceready', onDeviceReady);
+
+            if (cfg.ENV == 'web') onDeviceReady();
+        </script>
+        <script>
+            if (cfg.ENV == 'web' &&
+                    navigator.userAgent.indexOf('iPhone OS 6') > -1 &&
+                    !('standalone' in navigator && navigator.standalone)) {
+                document.body.style.paddingBottom = '60px';
+                document.getElementById('app').scrollIntoView();
+            }
+
+            document.body.classList.add(cfg.ENV);
+        </script>
+    </body>
+</html>

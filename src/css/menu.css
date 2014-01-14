@@ -1,0 +1,101 @@
+menu {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    z-index: 0;
+    color: white;
+    width: 480px;
+    -webkit-transform: translate3d(500px, 0, 0) rotateY(-50deg);
+    -webkit-transform-origin: 0% 0%;
+    -webkit-transition: 0.35s all;
+}
+
+menu.sidebarOn {
+    -webkit-transform: translate3d(0, 0, 0) scale(1);
+}
+
+#menuHandle {
+    position: absolute;
+    right: 0;
+    -webkit-transform: translate3d(3000%, 3000%, 0);
+    z-index: 2;
+    font-size: 48px;
+    overflow: hidden;
+    height: 88px;
+    width: 100px;
+    opacity: .9;
+}
+
+.device #menuHandle {
+    top: 40px;
+}
+
+#menuBack {
+    position: absolute;
+    z-index: 999;
+    color: #fff;
+    left: 18px;
+    top: 67px;
+    font-size: 17px;
+}
+#menuHandle.on {
+    -webkit-transform: translate3d(0%, 0%, 0);
+    z-index: 2;
+}
+
+menu .button {
+    display: block;
+    background: rgba(255,255,255,.05);
+    margin-bottom: 1px;
+    height: 100px;
+    line-height: 100px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    font-size: 32px;
+    color: rgba(255,255,255,1);
+    font-weight: 200;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    text-shadow: 0 0 2px rgba(0,0,0,.25);
+    letter-spacing: 2px;
+}
+
+menu.sidebar { height: 100%; border-left: 1px solid rgba(255,255,255,.04); }
+menu .button.search, .button.schedule { padding-left: 10px; top: 148px; }
+menu .button.about, menu .button.feedback { color: #cececf; }
+menu .button span {
+    background: white;
+    opacity: 0.2;
+    position: absolute;
+    top: 45px;
+    border-radius: 50%;
+    height: 20px;
+    width: 64px;
+    left: 48px;
+    display: block;
+
+}
+menu.sidebar img {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    margin: auto;
+    top: 20px;
+    left: 0;
+    right: 0;
+}
+#menuHandle i {
+    position: absolute;
+    left: 0;
+    width: 100px;
+    height: 88px;
+    color: #fff;
+    padding-top: 20px;
+}
+
+menu i {
+    position: absolute;
+    top: -107px;
+    left: -101px;
+}

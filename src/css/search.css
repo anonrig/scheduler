@@ -1,0 +1,93 @@
+.searchList > .search {
+    top: -20px;
+}
+
+.searchList .icon-search {
+    top: 50px;
+    left: 45px
+}
+
+.root.view {
+    width: 300%;
+    border-top: 1px solid rgba(0, 0, 0, .05);
+}
+
+.searchList {
+    padding-top: 88px;
+}
+
+.device .searchList.view {
+    padding-top: 128px;
+}
+
+.searchList .item {
+    height: 148px;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    padding: 20px 0 20px 20px;
+}
+
+.searchList .item p {
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: -1px;
+    color: rgba(255,255,255,0.6);
+}
+
+.searchList h3 {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 605px;
+}
+
+.searchList h4 {
+    font-size: 24px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.6);
+    margin: 3px 0 6px;
+}
+
+.searchList .clear {
+    position: absolute;
+    right: 40px;
+    top: 35px;
+    height: 50px;
+    width: 50px;
+    padding: 16px;
+}
+
+.searchList .item {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.searchList .item:active {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.searchList .list {
+    position: absolute;
+    top: 200px;
+    bottom: 0;
+    overflow-y: scroll;
+    width: 100%;
+}
+
+.device .searchList .list {
+    top: 220px;
+}
+
+.searchList input {
+    height: 64px;
+    background: rgba(0, 0, 0, 0.1);
+    color: white;
+    border-radius: 8px;
+    border: none;
+    width: 580px;
+    padding: 10px 10px 10px 60px;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0 30px;
+}

@@ -1,0 +1,12 @@
+.idea
+node_modules
+platforms/ios/www
+/www
+www.orig
+platforms/ios/CordovaLib/CordovaLib.xcodeproj/xcuserdata
+platforms/ios/Scheduler.xcodeproj/project.xcworkspace
+platforms/ios/Scheduler.xcodeproj/xcuserdata
+platforms/ios/cordova/console.log
+platforms/ios/CordovaLib/build/
+platforms/ios/build/
+src/js/compiled

@@ -1,0 +1,40 @@
+.navigationBar { position: absolute; height: 90px; width: 100%; text-align: center; color: #fff; z-index: 2; }
+.device .navigationBar { height: 130px; }
+
+.navigationBar .itemsContainer { position: absolute; height: 90px; width: 100%; }
+.device .navigationBar .itemsContainer { height: 130px; }
+
+.navigationBar .title { line-height: 80px; font-size: 30px; display: inline-block; font-weight: 700; text-transform: uppercase; }
+.navigationBar #menuButton.active { background-position: 0 -30px; }
+
+.navigationBar .button { left: 0; bottom: 0; top: 0px; position: absolute; font-size: 36px; padding: 26px 30px; height: 88px; width: 110px; }
+.device .navigationBar .button { top: 40px; }
+
+.navigationBar .button:active, #menuHandle .icon-menu.button:active { color: #CCCCCC; background-color: rgba(0,0,0,0.1) }
+.navigationBar .button.action { left: auto; right: 25px; opacity: 0; }
+.navigationBar .button.action.active { opacity: 1; }
+
+.navigationBar .button.icon-angle-left { font-weight: 600; top: 1px; font-size: 60px; }
+
+.navigationBar .item { position: absolute; top:0; left: 0; width: 100%; height: 90px; padding-top: 5px }
+.device .navigationBar .item { height: 130px; padding-top: 45px; }
+
+.navigationBar .item .title { -webkit-transform: translateX(0px); }
+.navigationBar .item.animate { -webkit-transition-duration:.35s; -webkit-transition-timing-function: ease-out; }
+.navigationBar .item.animate .title { -webkit-transition-duration:.35s; -webkit-transition-timing-function: ease-out; }
+.navigationBar .item.animate .button { -webkit-transition-duration:.35s; -webkit-transition-timing-function: ease-out; }
+
+.navigationBar .item.change:nth-child(1) { opacity: 0; }
+.navigationBar .item.change:nth-child(1) .title { -webkit-transform: translateX(-200px) }
+.navigationBar .item.change:nth-child(1) .button { -webkit-transform: translateX(-80px) }
+
+.navigationBar .item:nth-child(2) { opacity: 0; }
+.navigationBar .item:nth-child(2) .title { -webkit-transform: translateX(200px); }
+.navigationBar .item:nth-child(2) .button { -webkit-transform: translateX(80px); }
+
+.navigationBar .item.change:nth-child(2) { opacity: 1; }
+.navigationBar .item.change:nth-child(2) .title,
+.navigationBar .item.change:nth-child(2) .button { -webkit-transform: translateX(0); }
+
+.navigationBar .button.menu::before { left: -8px !important; }
+.navigationBar .button.menu::after { right: -8px !important; }
