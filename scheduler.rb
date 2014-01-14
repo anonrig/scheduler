@@ -26,9 +26,9 @@ courses = Array.new
 
 items.css('tr').each_slice(2) do |row_pair|
 	lecture = Hash.new
-	isEmpty = row_pair[0].css('th.ddlabel').text
+	isEmpty = row_pair[0].css('th.ddlabel').text == ""
 	
-	if isEmpty != ""
+	if !isEmpty
 		splitted = row_pair[0].css('th.ddlabel').text.split(' - ')
 		if splitted.count == 4
 			lecture['title'] = splitted[0]
@@ -68,18 +68,18 @@ items.css('tr').each_slice(2) do |row_pair|
 							end
 						end
 						
-						startsMorning = item[1].text.split(' - ')[0].split(' ')[1] 
+						startsMorning = item[1].text.split(' - ')[0].split(' ')[1] == "am"
 						startTimePair = item[1].text.split(' - ')[0].split(' ')[0].split(':')
 						startTimeHour = startTimePair[0].to_i
-						if startsMorning != "am" && startTimeHour != 12
+						if !startsMorning && startTimeHour != 12
 							startTimeHour += 12
 						end
 						startTimeMinute = startTimePair[1].to_i
 						
-						endsMorning = item[1].text.split(' - ')[1].split(' ')[1] 
+						endsMorning = item[1].text.split(' - ')[1].split(' ')[1]  == "am"
 						endTimePair = item[1].text.split(' - ')[1].split(' ')[0].split(':')
 						endTimeHour = endTimePair[0].to_i
-						if endsMorning != "am" && endTimeHour != 12
+						if !endsMorning && endTimeHour != 12
 							endTimeHour += 12
 						end
 						endTimeMinute = endTimePair[1].to_i
@@ -98,7 +98,7 @@ items.css('tr').each_slice(2) do |row_pair|
 			end
 		end
 		
-		if isEmpty != ""
+		if !isEmpty
 			lecture['informationList'] = informationList
 		end
 	end
