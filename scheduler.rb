@@ -43,8 +43,9 @@ items.css('tr').each_slice(2) do |row_pair|
 			lecture['name'] = splitted[3]
 			lecture['section'] = splitted[4]
 		end
+		lecture['catalog'] = "https://suis.sabanciuniv.edu#{row_pair[1].css('td.dddefault a')[0]['href']}"
 	end
-	
+
 	informationList = Array.new
 	
 	if row_pair[1] != nil
