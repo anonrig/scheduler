@@ -9,6 +9,9 @@ goog.require('tart.components.mobile.Model');
  */
 sc.components.Search.Model = function() {
     goog.base(this);
+   
 };
+
+
 goog.inherits(sc.components.Search.Model, tart.components.mobile.Model);
 goog.addSingletonGetter(sc.components.Search.Model);

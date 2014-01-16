@@ -2,7 +2,9 @@ goog.provide('sc.components.Search.ListController');
 goog.require('sc.components.Search.ListView');
 goog.require('sc.components.Search.Model');
 goog.require('sc.components.Search.SidebarMenu');
+goog.require('sc.models.CourseModel');
 goog.require('tart.components.mobile.Controller');
+
 
 
 
@@ -27,7 +29,9 @@ sc.components.Search.ListController.prototype.bindEvents = function() {
         domMappings = this.view.template.domMappings,
         outsideTapListener,
         input = this.view.get(domMappings.SEARCH_INPUT)[0],
-        clear = this.view.get(domMappings.SEARCH_CLEAR)[0];
+        clear = this.view.get(domMappings.SEARCH_CLEAR)[0],
+        listParent = this.view.get('.list')[0];
+
 
     var search = function(key) {
         /**
@@ -101,6 +105,31 @@ sc.components.Search.ListController.prototype.bindEvents = function() {
             if (e.target != input) input.blur();
         });
     });
+
+    goog.events.listen(listParent, tart.events.EventType.TAP, function(e) {
+        var element = e.target;
+        do {
+            var courseId = element.getAttribute('data-courseId');
+            if (!courseId) continue;
+            var listModel = sc.models.CourseModel.getInstance();
+            var chosenCourse = listModel.find(courseId);
+            if (!listModel.includes(chosenCourse)) {
+                if (!listModel.collides(chosenCourse)) {
+                    listModel.add(chosenCourse);
+                    //notification bar'daki selected course sayisini arttir
+                    var message = 'Course added. ' + listModel.count + ' classes added.';
+                } else {
+                    //element collides with existing
+                    var message = chosenCourse.title + ' collides.';
+                }
+            } else {
+                //zaten listede var o zaman listeden cikart
+                var message = 'Could not add <strong>' + chosenCourse.title + '</strong>';
+                listModel.remove(chosenCourse);
+            }
+            break;
+        } while ((element = element.parentElement) && element != this.getDOM());
+    }, false, this);
 
     goog.events.listen(input, goog.events.EventType.BLUR, function() {
         goog.events.unlistenByKey(outsideTapListener);
