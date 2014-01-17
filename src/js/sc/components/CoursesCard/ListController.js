@@ -6,7 +6,6 @@ goog.require('tart.components.mobile.Controller');
 
 
 
-
 /**
  * List controller.
  *
@@ -15,6 +14,7 @@ goog.require('tart.components.mobile.Controller');
  */
 sc.components.CoursesCard.ListController = function() {
     this.courseModel = sc.models.CourseModel.getInstance();
+    this.cardModel = sc.components.CoursesCard.Model.getInstance();
     goog.base(this);
 };
 goog.inherits(sc.components.CoursesCard.ListController, tart.components.mobile.Controller);
@@ -28,6 +28,23 @@ sc.components.CoursesCard.ListController.prototype.bindEvents = function() {
     goog.events.listen(this.courseModel,
         [sc.models.CourseModel.EventType.ADD_COURSE, sc.models.CourseModel.EventType.REMOVE_COURSE], this.list,
         false, this);
+
+    var mainDiv = this.getDOM();
+
+    goog.events.listen(mainDiv, tart.events.EventType.TAP, function(e){
+    	if (this.cardModel.state == sc.components.CoursesCard.Model.State.TAB)
+    		this.cardModel.toggleState(sc.components.CoursesCard.Model.State.ON); console.log("girdi");
+    }, false, this);
+
+    goog.events.listen(mainDiv, tart.events.EventType.SWIPE_UP, function(){
+    	if (this.cardModel.state == sc.components.CoursesCard.Model.State.TAB)
+    		this.cardModel.toggleState(sc.components.CoursesCard.Model.State.ON); console.log("swipe up");
+    }, false, this);
+
+    goog.events.listen(mainDiv, tart.events.EventType.SWIPE_DOWN, function(){
+    	if (this.cardModel.state == sc.components.CoursesCard.Model.State.ON)
+    		this.cardModel.toggleState(sc.components.CoursesCard.Model.State.OFF); console.log("swipe down");
+    }, false, this);
 };
 
 

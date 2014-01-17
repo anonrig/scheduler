@@ -4,7 +4,7 @@ goog.require('sc.components.Search.Model');
 goog.require('sc.components.Search.SidebarMenu');
 goog.require('sc.models.CourseModel');
 goog.require('tart.components.mobile.Controller');
-
+goog.require('tart.events');
 
 
 
