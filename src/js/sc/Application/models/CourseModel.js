@@ -32,14 +32,14 @@ sc.models.CourseModel.prototype.collides = function(chosenCourse) {
     return goog.array.some(this.selectedCourses, function(course) { 
         return goog.array.some(course['informationList'], function(eachLesson){
             return this.collideHelper(eachLesson, chosenCourse);
-        });
-    });
+        }, this);
+    }, this);
 };
 
 sc.models.CourseModel.prototype.collideHelper = function(infoElement, course) {
     return goog.array.some(course['informationList'], function(eachLecture) {
         return (infoElement['startDate'] >= eachLecture['startDate'] && infoElement['startDate'] < eachLecture['endDate']) || (infoElement['endDate'] > eachLecture['startDate'] && infoElement['endDate'] <= eachLecture['endDate']); 
-    });
+    }, this);
 };
 
 /**
@@ -55,7 +55,7 @@ sc.models.CourseModel.prototype.add = function(chosenCourse) {
 
 /**
 * Find the course with the selected course id
-* @param {number} chosenCourseId
+* @param {string} chosenCourseId
 * @return {Object}
 **/
 sc.models.CourseModel.prototype.find = function(chosenCourseId) {
