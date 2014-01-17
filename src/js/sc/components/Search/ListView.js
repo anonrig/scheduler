@@ -52,3 +52,8 @@ sc.components.Search.ListView.prototype.enableClearButton = function(showButton)
     var clearButton = this.get(this.template.domMappings.SEARCH_CLEAR)[0];
     goog.style.showElement(clearButton, showButton);
 };
+
+
+sc.components.Search.ListView.prototype.enableItemSelection = function(element, selected) {
+    goog.dom.classes.enable(element, 'selected', selected);
+}

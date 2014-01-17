@@ -26,6 +26,17 @@
     display: block;
     overflow: hidden;
     padding: 20px 0 20px 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    -webkit-transition: 0.3s background-color;
+}
+
+.searchList .item:active {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.searchList .item.selected {
+    background: hsla(110, 50%, 40%, 0.3);
 }
 
 .searchList .item p {
@@ -56,15 +67,6 @@
     height: 50px;
     width: 50px;
     padding: 16px;
-}
-
-.searchList .item {
-    background-color: rgba(0, 0, 0, 0.3);
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.searchList .item:active {
-    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .searchList .list {

@@ -112,7 +112,8 @@ sc.components.Search.ListController.prototype.bindEvents = function() {
             var courseId = element.getAttribute('data-courseId');
             if (!courseId) continue;
 
-            this.onCourseTap(courseId);
+            var removed = this.onCourseTap(courseId);
+            this.view.enableItemSelection(element, !removed);
             break;
         } while ((element = element.parentElement) && element != this.getDOM());
     }, false, this);
@@ -143,9 +144,7 @@ sc.components.Search.ListController.prototype.onCourseTap = function(courseId) {
 
     try {
         courseModel.add(chosenCourse);
-        alert('Course added. ' + courseModel.count() + ' classes added.');
     } catch(e) {
         if (e.message == 'Already in the list') return courseModel.remove(chosenCourse);
-        else alert(e.message);
     }
 };
