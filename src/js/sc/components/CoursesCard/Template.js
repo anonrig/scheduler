@@ -14,7 +14,8 @@ sc.components.CoursesCard.Template = function() {
     goog.base(this);
 
     this.domMappings = {
-        LIST: '.list'
+        LIST: '.list',
+        COUNT: '.count'
     };
 };
 goog.inherits(sc.components.CoursesCard.Template, tart.components.mobile.Template);
@@ -33,6 +34,7 @@ sc.components.CoursesCard.Template.prototype.base = function() {
 
 sc.components.CoursesCard.Template.prototype.listBase = function() {
     return '<div class="coursesList view">' +
+            '<div class="count"></div>' +
             '<div class="list"></div>' +
         '</div>';
 };

@@ -1,3 +1,20 @@
 .coursesCard {
-    top: 100%;
+    -webkit-transform: translate3d(0, 100%, 0);
+    -webkit-transition: 0.3s -webkit-transform;
+    background: #333;
+}
+
+.coursesCard.tab {
+    -webkit-transform: translate3d(0, 80%, 0);
+
+}
+
+
+.coursesCard .list {
+    padding: 0 20px 20px;
+}
+
+.coursesCard .count {
+    text-align: right;
+    padding: 10px;
 }
