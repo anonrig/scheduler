@@ -112,8 +112,7 @@ sc.components.Search.ListController.prototype.bindEvents = function() {
             var courseId = element.getAttribute('data-courseId');
             if (!courseId) continue;
 
-            var removed = this.onCourseTap(courseId);
-            this.view.enableItemSelection(element, !removed);
+            this.onCourseTap(element, courseId);
             break;
         } while ((element = element.parentElement) && element != this.getDOM());
     }, false, this);
@@ -136,16 +135,21 @@ sc.components.Search.ListController.prototype.list = function() {
 /**
  * Adds the tapped course to selected courses list if applicable.
  *
+ * @param {HTMLElement} element Tapped element.
  * @param {string} courseId Course ID for the tapped element.
  */
-sc.components.Search.ListController.prototype.onCourseTap = function(courseId) {
+sc.components.Search.ListController.prototype.onCourseTap = function(element, courseId) {
     var courseModel = sc.models.CourseModel.getInstance();
     var chosenCourse = courseModel.find(courseId);
 
     try {
         courseModel.add(chosenCourse);
+        this.view.enableItemSelection(element, true);
     } catch(e) {
-        if (e.message == 'Already in the list') { return courseModel.remove(chosenCourse); }
-        else if (e.message.toString().split(' ').slice(-1) == "Collides") { alert(e.message); return true;}
+        if (e.message == 'Already in the list') {
+            courseModel.remove(chosenCourse);
+            this.view.enableItemSelection(element, false);
+        }
+        else alert(e.message);
     }
 };
