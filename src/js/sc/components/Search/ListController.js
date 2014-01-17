@@ -64,7 +64,7 @@ sc.components.Search.ListController.prototype.bindEvents = function() {
 
                 var props = [
                     item['title'],
-                    item['courseID'],
+                    item['id'],
                     item['name']
                 ].concat(teacher);
 
