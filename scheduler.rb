@@ -33,13 +33,13 @@ items.css('tr').each_slice(2) do |row_pair|
 		if splitted.count == 4
 			lecture['title'] = splitted[0]
 			lecture['type'] = ""
-			lecture['courseID'] = splitted[1]
+			lecture['id'] = splitted[1]
 			lecture['name'] = splitted[2]
 			lecture['section'] = splitted[3]
 		else 
 			lecture['title'] = splitted[0]
 			lecture['type'] = splitted[1]
-			lecture['courseID'] = splitted[2]
+			lecture['id'] = splitted[2]
 			lecture['name'] = splitted[3]
 			lecture['section'] = splitted[4]
 		end
