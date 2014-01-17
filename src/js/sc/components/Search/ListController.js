@@ -111,22 +111,8 @@ sc.components.Search.ListController.prototype.bindEvents = function() {
         do {
             var courseId = element.getAttribute('data-courseId');
             if (!courseId) continue;
-            var listModel = sc.models.CourseModel.getInstance();
-            var chosenCourse = listModel.find(courseId);
-            if (!listModel.includes(chosenCourse)) {
-                if (!listModel.collides(chosenCourse)) {
-                    listModel.add(chosenCourse);
-                    //notification bar'daki selected course sayisini arttir
-                    var message = 'Course added. ' + listModel.count + ' classes added.';
-                } else {
-                    //element collides with existing
-                    var message = chosenCourse.title + ' collides.';
-                }
-            } else {
-                //zaten listede var o zaman listeden cikart
-                var message = 'Could not add <strong>' + chosenCourse.title + '</strong>';
-                listModel.remove(chosenCourse);
-            }
+
+            this.onCourseTap(courseId);
             break;
         } while ((element = element.parentElement) && element != this.getDOM());
     }, false, this);
@@ -143,4 +129,23 @@ sc.components.Search.ListController.prototype.list = function() {
         type: 'Search',
         order: 0
     });
+};
+
+
+/**
+ * Adds the tapped course to selected courses list if applicable.
+ *
+ * @param {string} courseId Course ID for the tapped element.
+ */
+sc.components.Search.ListController.prototype.onCourseTap = function(courseId) {
+    var courseModel = sc.models.CourseModel.getInstance();
+    var chosenCourse = courseModel.find(courseId);
+
+    try {
+        courseModel.add(chosenCourse);
+    } catch(e) {
+        if (e.message == 'Already in the list') return courseModel.remove(chosenCourse);
+        else alert(e.message);
+    }
+    alert('Course added. ' + courseModel.count() + ' classes added.');
 };

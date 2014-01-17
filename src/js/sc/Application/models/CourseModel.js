@@ -37,6 +37,9 @@ sc.models.CourseModel.prototype.collides = function(chosenCourse) {
 * @param {Object} chosenCourse
 **/
 sc.models.CourseModel.prototype.add = function(chosenCourse) {
+    if (this.includes(chosenCourse)) throw new Error('Already in the list');
+    if (this.collides(chosenCourse)) throw new Error(chosenCourse['title'] + 'Collides');
+
     this.selectedCourses.push(chosenCourse);
 };
 
