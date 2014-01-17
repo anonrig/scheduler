@@ -145,6 +145,7 @@ sc.components.Search.ListController.prototype.onCourseTap = function(courseId) {
     try {
         courseModel.add(chosenCourse);
     } catch(e) {
-        if (e.message == 'Already in the list') return courseModel.remove(chosenCourse);
+        if (e.message == 'Already in the list') { return courseModel.remove(chosenCourse); }
+        else if (e.message.toString().split(' ').slice(-1) == "Collides") { alert(e.message); return true;}
     }
 };
