@@ -91,7 +91,7 @@ menu.sidebar img {
     width: 100px;
     height: 88px;
     color: #fff;
-    padding-top: 20px;
+    padding: 20px 0 0 20px;
 }
 
 menu i {
