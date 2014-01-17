@@ -60,8 +60,8 @@ sc.models.CourseModel.prototype.collideHelper = function(infoElement, course) {
 * @param {Object} chosenCourse
 **/
 sc.models.CourseModel.prototype.add = function(chosenCourse) {
-    if (this.includes(chosenCourse)) throw new Error('Already in the list');
-    if (this.collides(chosenCourse)) throw new Error(chosenCourse['title'] + ' Collides');
+    if (this.includes(chosenCourse)) throw new Error('Already in the list.');
+    if (this.collides(chosenCourse)) throw new Error(chosenCourse['title'] + ' collides.');
 
     this.selectedCourses.push(chosenCourse);
 
