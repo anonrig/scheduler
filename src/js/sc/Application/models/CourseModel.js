@@ -42,7 +42,7 @@ sc.models.CourseModel.prototype.includes = function(chosenCourse) {
 * @return {boolean}
 **/
 sc.models.CourseModel.prototype.collides = function(chosenCourse) {
-    return goog.array.some(this.selectedCourses, function(course) { 
+    return goog.array.some(this.selectedCourses, function(course) {
         return goog.array.some(course['informationList'], function(eachLesson){
             return this.collideHelper(eachLesson, chosenCourse);
         }, this);
@@ -51,7 +51,7 @@ sc.models.CourseModel.prototype.collides = function(chosenCourse) {
 
 sc.models.CourseModel.prototype.collideHelper = function(infoElement, course) {
     return goog.array.some(course['informationList'], function(eachLecture) {
-        return (infoElement['startDate'] >= eachLecture['startDate'] && infoElement['startDate'] < eachLecture['endDate']) || (infoElement['endDate'] > eachLecture['startDate'] && infoElement['endDate'] <= eachLecture['endDate']); 
+        return (infoElement['startDate'] >= eachLecture['startDate'] && infoElement['startDate'] < eachLecture['endDate']) || (infoElement['endDate'] > eachLecture['startDate'] && infoElement['endDate'] <= eachLecture['endDate']);
     }, this);
 };
 
