@@ -1,4 +1,5 @@
 goog.provide('sc.views.layouts.common');
+goog.require('sc.components.CoursesCard.Widget');
 goog.require('sc.views.helpers.sidebarHelper');
 goog.require('sc.views.helpers.touchEventsHelper');
 
@@ -8,6 +9,7 @@ goog.require('sc.views.helpers.touchEventsHelper');
  */
 sc.views.layouts.common = function() {
     var navigationBar = sc.Registry.get('navigationBar');
+    var cardWidget = sc.components.CoursesCard.Widget.getInstance();
 
     this.onRender = function() {
         goog.dom.classes.remove(document.body, 'loading');
@@ -16,6 +18,7 @@ sc.views.layouts.common = function() {
         sc.views.helpers.touchEventsHelper();
         sc.views.helpers.sidebarHelper();
         navigationBar.render(goog.dom.query('.root.header')[0]);
+        cardWidget.render();
         sc.views.helpers.sidebarHelper.showHandle(true);
     };
 
@@ -25,5 +28,6 @@ sc.views.layouts.common = function() {
                       '<div id="content">' +
                           this.getContent() +
                       '</div>' +
+                      cardWidget.getPlaceholder() +
                   '</div>';
 };

@@ -1,6 +1,7 @@
 goog.provide('sc.models.CourseModel');
 goog.require('tart.components.mobile.Model');
 
+
 /**
  * @extends {tart.components.mobile.Model}
  * @constructor
@@ -13,6 +14,18 @@ sc.models.CourseModel = function() {
 };
 goog.inherits(sc.models.CourseModel, tart.components.mobile.Model);
 goog.addSingletonGetter(sc.models.CourseModel);
+
+
+
+/**
+ *
+ * @enum {string}
+ */
+sc.models.CourseModel.EventType = {
+    ADD_COURSE: 'addCourse',
+    REMOVE_COURSE: 'removeCourse'
+};
+
 
 /**
 * Checks if list includes chosen course object
@@ -51,6 +64,8 @@ sc.models.CourseModel.prototype.add = function(chosenCourse) {
     if (this.collides(chosenCourse)) throw new Error(chosenCourse['title'] + 'Collides');
 
     this.selectedCourses.push(chosenCourse);
+
+    this.dispatchEvent(sc.models.CourseModel.EventType.ADD_COURSE);
 };
 
 /**
@@ -75,5 +90,9 @@ sc.models.CourseModel.prototype.count = function() {
 * @return {boolean}
 **/
 sc.models.CourseModel.prototype.remove = function(chosenCourse) {
-    return goog.array.remove(this.selectedCourses, chosenCourse);
+    var rv = goog.array.remove(this.selectedCourses, chosenCourse);
+
+    rv && this.dispatchEvent(sc.models.CourseModel.EventType.REMOVE_COURSE);
+
+    return rv;
 };

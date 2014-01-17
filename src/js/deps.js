@@ -943,10 +943,17 @@ goog.addDependency('../../../../../sc/Application/controllers/SearchController.j
 goog.addDependency('../../../../../sc/Application/models/CourseModel.js', ['sc.models.CourseModel'], ['tart.components.mobile.Model']);
 goog.addDependency('../../../../../sc/Application/views/helper/sidebarHelper.js', ['sc.views.helpers.sidebarHelper'], []);
 goog.addDependency('../../../../../sc/Application/views/helper/touchEventsHelper.js', ['sc.views.helpers.touchEventsHelper'], ['goog.dom.query']);
-goog.addDependency('../../../../../sc/Application/views/layouts/common.js', ['sc.views.layouts.common'], ['sc.views.helpers.sidebarHelper', 'sc.views.helpers.touchEventsHelper']);
+goog.addDependency('../../../../../sc/Application/views/layouts/common.js', ['sc.views.layouts.common'], ['sc.components.CoursesCard.Widget', 'sc.views.helpers.sidebarHelper', 'sc.views.helpers.touchEventsHelper']);
 goog.addDependency('../../../../../sc/Application/views/scripts/search/index.js', ['sc.views.scripts.search.index'], ['sc.components.Search.Widget']);
 goog.addDependency('../../../../../sc/Bootstrapper.js', ['sc.Bootstrapper'], ['goog.dom', 'sc.Application', 'sc.Registry', 'sc.components.NavigationBar', 'sc.util', 'tart.ui.ComponentManager']);
 goog.addDependency('../../../../../sc/Registry.js', ['sc.Registry'], ['tart.Registry']);
+goog.addDependency('../../../../../sc/components/CoursesCard/ListController.js', ['sc.components.CoursesCard.ListController'], ['sc.components.CoursesCard.ListView', 'sc.components.CoursesCard.Model', 'sc.models.CourseModel', 'tart.components.mobile.Controller']);
+goog.addDependency('../../../../../sc/components/CoursesCard/ListView.js', ['sc.components.CoursesCard.ListView'], ['goog.style', 'sc.components.CoursesCard.Template', 'tart.components.mobile.View']);
+goog.addDependency('../../../../../sc/components/CoursesCard/Model.js', ['sc.components.CoursesCard.Model'], ['tart.components.mobile.Model']);
+goog.addDependency('../../../../../sc/components/CoursesCard/RootController.js', ['sc.components.CoursesCard.RootController'], ['sc.components.CoursesCard.ListController', 'sc.components.CoursesCard.RootView']);
+goog.addDependency('../../../../../sc/components/CoursesCard/RootView.js', ['sc.components.CoursesCard.RootView'], ['sc.components.CoursesCard.Template', 'tart.components.mobile.View']);
+goog.addDependency('../../../../../sc/components/CoursesCard/Template.js', ['sc.components.CoursesCard.Template'], ['tart.components.mobile.Template', 'tart.date']);
+goog.addDependency('../../../../../sc/components/CoursesCard/Widget.js', ['sc.components.CoursesCard.Widget'], ['sc.components.CoursesCard.RootController', 'tart.components.mobile.Widget']);
 goog.addDependency('../../../../../sc/components/NavigationBar.js', ['sc.components.NavigationBar'], ['tart.components.NavigationBar']);
 goog.addDependency('../../../../../sc/components/Search/ListController.js', ['sc.components.Search.ListController'], ['sc.components.Search.ListView', 'sc.components.Search.Model', 'sc.components.Search.SidebarMenu', 'sc.models.CourseModel', 'tart.components.mobile.Controller']);
 goog.addDependency('../../../../../sc/components/Search/ListView.js', ['sc.components.Search.ListView'], ['goog.style', 'sc.components.Search.Template', 'tart.components.mobile.View']);
