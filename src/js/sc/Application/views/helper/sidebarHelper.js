@@ -53,22 +53,22 @@ sc.views.helpers.sidebarHelper.openSidebar = function(turnOn) {
  * @param {boolean=} show
  */
 sc.views.helpers.sidebarHelper.showHandle = function(show) {
-    var that = sc.views.helpers.sidebarHelper;
+//    var that = sc.views.helpers.sidebarHelper;
 
-    that.swipeLeftHandler && goog.events.unlistenByKey(that.swipeLeftHandler);
-    that.swipeRightHandler && goog.events.unlistenByKey(that.swipeRightHandler);
+//    that.swipeLeftHandler && goog.events.unlistenByKey(that.swipeLeftHandler);
+//    that.swipeRightHandler && goog.events.unlistenByKey(that.swipeRightHandler);
     if (show !== undefined)
         sc.views.helpers.sidebarHelper.handleState = show;
-
-    if (show == true) {
-        that.swipeLeftHandler = goog.events.listen(document.body, tart.events.EventType.SWIPE_LEFT, function() {
-            sc.views.helpers.sidebarHelper.openSidebar(true);
-        }, false);
-
-        that.swipeRightHandler = goog.events.listen(document.body, tart.events.EventType.SWIPE_RIGHT, function() {
-            sc.views.helpers.sidebarHelper.openSidebar(false);
-        }, false);
-    }
+//
+//    if (show == true) {
+//        that.swipeLeftHandler = goog.events.listen(document.body, tart.events.EventType.SWIPE_LEFT, function() {
+//            sc.views.helpers.sidebarHelper.openSidebar(true);
+//        }, false);
+//
+//        that.swipeRightHandler = goog.events.listen(document.body, tart.events.EventType.SWIPE_RIGHT, function() {
+//            sc.views.helpers.sidebarHelper.openSidebar(false);
+//        }, false);
+//    }
 
     var handle = goog.dom.query('#menuHandle')[0];
     handle && goog.dom.classes.enable(handle, 'on', sc.views.helpers.sidebarHelper.handleState);

@@ -14,7 +14,7 @@ goog.require('tart.ui.ComponentManager');
  */
 sc.Bootstrapper = function() {
     sc.disableEvents();
-    sc.setSwipeWindow();
+//    sc.setSwipeWindow();
     sc.preventLayoutFlicker();
     sc.setViewClass();
     sc.Registry.get('eventManager', goog.events.EventTarget);
@@ -48,7 +48,7 @@ sc.disableEvents = function() {
 
     var originalOnTouchend = tart.events.GestureHandler.prototype.onTouchend;
     tart.events.GestureHandler.prototype.onTouchend = function(e) {
-        if (this.canTap) e.stopPropagation();
+        if (this.canTap) e.preventDefault();
         originalOnTouchend.call(this, e);
     };
 };

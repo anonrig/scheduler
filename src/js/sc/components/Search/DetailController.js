@@ -31,9 +31,9 @@ sc.components.Search.DetailController.prototype.bindEvents = function() {
         outsideTapListener,
         listParent = this.getDOM();
 
-    // goog.events.listen(listParent, tart.events.EventType.SWIPE_RIGHT, function(e) {
-    //     sc.router.redirectToRoute('search');
-    // }, false, this);
+    goog.events.listen(listParent, tart.events.EventType.SWIPE_RIGHT, function(e) {
+         sc.router.redirectToRoute('search');
+    }, false, this);
 };
 
 
@@ -42,11 +42,11 @@ sc.components.Search.DetailController.prototype.detail = function(id) {
 	this.view.detail(course);
     sc.Registry.get('navigationBar').setConfig({
         title: course['name'],
-        backButtonText: 'Back',
+        backButtonText: '',
         backButtonAction: function() {
             sc.router.redirectToRoute('search');
         },
-        type: 'View',
+        type: 'Search',
         order: 1
     });
 };

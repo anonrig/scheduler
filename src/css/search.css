@@ -29,6 +29,17 @@
     background-color: rgba(0, 0, 0, 0.3);
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     -webkit-transition: 0.3s background-color;
+    -webkit-transform-origin: 0% 100%;
+    -webkit-transform: translate3d(0,0,0);
+}
+
+.searchList .item .icon {
+    position: absolute;
+    right: 0px;
+    top: 65px;
+    font-size: 40px;
+    font-weight: 100;
+    opacity: 0.2;
 }
 
 .courses .item:active {
@@ -109,4 +120,10 @@
 .root .detail.view {
     padding-top: 128px;
     -webkit-transition: 0.3s background-color;
+}
+
+@-webkit-keyframes selection {
+    from { -webkit-transform: translate3d(0,0,0); }
+    30% { -webkit-transform: translate3d(-120px,0,0) rotate(-2deg); -webkit-animation-timing-function: ease-in; }
+    60% { -webkit-transform: translate3d(0,0,0); }
 }

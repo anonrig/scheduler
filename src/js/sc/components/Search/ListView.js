@@ -55,5 +55,11 @@ sc.components.Search.ListView.prototype.enableClearButton = function(showButton)
 
 
 sc.components.Search.ListView.prototype.enableItemSelection = function(element, selected) {
+    element.style.webkitAnimation = 'selection .5s ease-out';
+
     goog.dom.classes.enable(element, 'selected', selected);
+
+    element.addEventListener('webkitAnimationEnd', function(){
+        element.style.webkitAnimation = '';
+    }, false);
 }

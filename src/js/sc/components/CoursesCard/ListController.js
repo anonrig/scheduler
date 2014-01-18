@@ -43,7 +43,7 @@ sc.components.CoursesCard.ListController.prototype.bindEvents = function() {
         if (this.cardModel.state == State.TAB) this.cardModel.setState(State.ON);
     }, false, this);
 
-    goog.events.listen(mainDiv, tart.events.EventType.SWIPE_DOWN, function() {
+    goog.events.listen(mainDiv, tart.events.EventType.SWIPE_DOWN, function(e) {
         if (!e.target.classList.contains('count')) return;
 
         if (this.cardModel.state == State.ON) this.cardModel.setState(State.TAB);

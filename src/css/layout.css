@@ -86,7 +86,7 @@ h4 {
 }
 
 #app.sidebarOn {
-    -webkit-transform: translate3d(-480px, 0, 0) rotateY(50deg);
+    -webkit-transform: translate3d(-480px, 0, 0) rotateY(50deg) scale(0.9);
     /*opacity: 0.5;*/
     /*box-shadow: 0 0 30px rgba(0,0,0,0.4);*/
 }

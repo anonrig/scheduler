@@ -4,10 +4,10 @@
 .navigationBar .itemsContainer { position: absolute; height: 90px; width: 100%; }
 .device .navigationBar .itemsContainer { height: 130px; }
 
-.navigationBar .title { line-height: 80px; font-size: 30px; display: inline-block; font-weight: 700; text-transform: uppercase; }
+.navigationBar .title { line-height: 78px; font-size: 30px; display: inline-block; font-weight: 700; text-transform: uppercase; }
 .navigationBar #menuButton.active { background-position: 0 -30px; }
 
-.navigationBar .button { left: 0; bottom: 0; top: 0px; position: absolute; font-size: 36px; padding: 26px 30px; height: 88px; width: 110px; }
+.navigationBar .button { left: 0; bottom: 0; top: 0px; position: absolute; font-size: 36px; padding: 26px 20px; height: 88px; width: 110px; }
 .device .navigationBar .button { top: 40px; }
 
 .navigationBar .button:active, #menuHandle .icon-menu.button:active { color: #CCCCCC; background-color: rgba(0,0,0,0.1) }

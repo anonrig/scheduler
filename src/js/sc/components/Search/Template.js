@@ -54,7 +54,7 @@ sc.components.Search.Template.prototype.empty = function() {
 sc.components.Search.Template.prototype.search = function() {
     return '<div class="search">' +
             '<i class="icon-search"></i>' +
-            '<form name="search">' +
+            '<form name="search" onsubmit="return false;">' +
                 '<input type="text" class="search" placeholder="Enter course ID, code or name" />' +
             '</form>' +
             '<div class="clear" style="display: none"><i class="icon-close"></i></div>' +
@@ -75,10 +75,11 @@ sc.components.Search.Template.prototype.item = function(item) {
 
     var section = item['section'] == '0' ? '' : ' - ' + item['section'];
 
-    return '<div class="item" data-courseId="' + item['id'] + '">' +
+    return '<div class="item" data-courseId="' + item['id'] + '" data-href="#!/detail/' + item['id'] + '">' +
             '<h3><strong>' + item['name'] + section + '</strong> ' + item['title'] + '</h3>' +
             '<h4>' + teachers.join(', ') + '</h4>' +
             '<p>' + times + '</p>' +
+            '<div class="icon">〉</div>' +
         '</div>';
 };
 

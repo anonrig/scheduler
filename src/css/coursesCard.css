@@ -39,6 +39,10 @@
     background: none;
 }
 
+.coursesCard .courses.list .item .icon {
+    display: none;
+}
+
 .coursesCard .courses.list {
     padding: 0;
     overflow: scroll;
