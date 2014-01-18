@@ -940,7 +940,7 @@ goog.addDependency('../../../../../library/tartJS/third_party/goog/third_party/c
 goog.addDependency('../../../../../library/tartJS/third_party/goog/third_party/closure/goog/silverlight/supporteduseragent.js', ['goog.silverlight.supportedUserAgent'], []);
 goog.addDependency('../../../../../sc/Application/Application.js', ['sc.Application'], ['sc.controllers.SearchController', 'sc.views.layouts.common', 'tart.dom', 'tart.mvc', 'tart.mvc.MobileRenderer', 'tart.ui.DlgComponent']);
 goog.addDependency('../../../../../sc/Application/controllers/SearchController.js', ['sc.controllers.SearchController'], ['sc.views.scripts.search.index', 'tart.mvc.Controller']);
-goog.addDependency('../../../../../sc/Application/models/CourseModel.js', ['sc.models.CourseModel'], ['tart.components.mobile.Model']);
+goog.addDependency('../../../../../sc/Application/models/CourseModel.js', ['sc.models.CourseModel'], ['tart.components.mobile.Model', 'tart.storage.Storage']);
 goog.addDependency('../../../../../sc/Application/views/helper/sidebarHelper.js', ['sc.views.helpers.sidebarHelper'], []);
 goog.addDependency('../../../../../sc/Application/views/helper/touchEventsHelper.js', ['sc.views.helpers.touchEventsHelper'], ['goog.dom.query']);
 goog.addDependency('../../../../../sc/Application/views/layouts/common.js', ['sc.views.layouts.common'], ['sc.components.CoursesCard.Widget', 'sc.views.helpers.sidebarHelper', 'sc.views.helpers.touchEventsHelper']);

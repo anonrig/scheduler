@@ -13,6 +13,8 @@ goog.require('tart.components.mobile.View');
  */
 sc.components.CoursesCard.ListView = function() {
     goog.base(this);
+
+    this.courseModel = sc.models.CourseModel.getInstance();
 };
 goog.inherits(sc.components.CoursesCard.ListView, tart.components.mobile.View);
 
@@ -29,18 +31,18 @@ sc.components.CoursesCard.ListView.prototype.index = 0;
  * @override
  */
 sc.components.CoursesCard.ListView.prototype.render = function() {
-    return this.template.listBase();
+    return this.template.listBase(this.courseModel.selectedCourses, this.courseModel.getTotalHours());
 };
 
 
-sc.components.CoursesCard.ListView.prototype.list = function(items) {
+sc.components.CoursesCard.ListView.prototype.list = function(items, hours) {
     var markup = '';
 
     if (items) {
         markup = items.map(this.template.item, this.template).join('');
     }
 
-    var stats = items.length + ' courses, ' + sc.models.CourseModel.getInstance().getTotalHours() + ' hours.';
+    var stats = items.length + ' courses, ' + hours + ' hours.';
 
     this.get(this.template.domMappings.LIST)[0].innerHTML = markup;
     this.get(this.template.domMappings.COUNT)[0].innerHTML = stats;

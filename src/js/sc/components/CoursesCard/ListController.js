@@ -55,7 +55,7 @@ sc.components.CoursesCard.ListController.prototype.bindEvents = function() {
 
 
 sc.components.CoursesCard.ListController.prototype.list = function() {
-    this.view.list(this.courseModel.selectedCourses);
+    this.view.list(this.courseModel.selectedCourses, this.courseModel.getTotalHours());
 };
 
 

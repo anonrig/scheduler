@@ -15,7 +15,6 @@ sc.components.CoursesCard.RootController = function() {
 
     this.listController = new sc.components.CoursesCard.ListController();
     this.view.addSubView(this.listController.view);
-    this.listController.list();
     this.view.setActiveView(this.listController.view);
 };
 goog.inherits(sc.components.CoursesCard.RootController, tart.components.mobile.Controller);

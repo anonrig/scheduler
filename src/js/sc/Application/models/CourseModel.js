@@ -1,5 +1,7 @@
 goog.provide('sc.models.CourseModel');
 goog.require('tart.components.mobile.Model');
+goog.require('tart.storage.Storage');
+
 
 
 /**
@@ -11,6 +13,12 @@ sc.models.CourseModel = function() {
     this.selectedCourses = [];
     this.allCourses = db;
 
+    this.localStorage = new tart.storage.Storage();
+
+    var selectedIds = this.localStorage.get('selectedCourses') || [];
+    selectedIds.forEach(function(id) {
+        this.add(this.find(id));
+    }, this);
 };
 goog.inherits(sc.models.CourseModel, tart.components.mobile.Model);
 goog.addSingletonGetter(sc.models.CourseModel);
@@ -65,6 +73,9 @@ sc.models.CourseModel.prototype.add = function(chosenCourse) {
 
     this.selectedCourses.push(chosenCourse);
     chosenCourse['selected'] = true;
+
+    this.localStorage.set('selectedCourses', this.selectedCourses.map(function(c) { return c['id'];}));
+
     this.dispatchEvent(sc.models.CourseModel.EventType.ADD_COURSE);
 };
 
@@ -94,6 +105,8 @@ sc.models.CourseModel.prototype.remove = function(chosenCourse) {
 
     rv && (chosenCourse['selected'] = false);
     rv && this.dispatchEvent(sc.models.CourseModel.EventType.REMOVE_COURSE);
+
+    this.localStorage.set('selectedCourses', this.selectedCourses.map(function(c) { return c['id'];}));
 
     return rv;
 };

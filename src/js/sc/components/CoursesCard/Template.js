@@ -32,12 +32,14 @@ sc.components.CoursesCard.Template.prototype.base = function() {
 };
 
 
-sc.components.CoursesCard.Template.prototype.listBase = function() {
+sc.components.CoursesCard.Template.prototype.listBase = function(items, hours) {
+    var markup = items ? items.map(this.item, this).join('') : '';
+
     return '<div class="coursesList view">' +
             '<div class="bg"></div>' +
             '<div class="bg2"></div>' +
-            '<div class="count"></div>' +
-            '<div class="list courses"></div>' +
+            '<div class="count">' + items.length + ' courses, ' + hours + ' hours.' + '</div>' +
+            '<div class="list courses">' + markup + '</div>' +
         '</div>';
 };
 

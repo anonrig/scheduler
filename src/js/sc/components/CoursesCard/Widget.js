@@ -27,6 +27,9 @@ sc.components.CoursesCard.Widget.prototype.controllerClass = sc.components.Cours
  * @return {string} placheolder markup.
  */
 sc.components.CoursesCard.Widget.prototype.templates_placeholder = function () {
-    return '<div class="coursesCard widgetPlaceholder" id="' + this.getId() + '"></div>';
+    sc.models.CourseModel.getInstance();
+    var state = sc.components.CoursesCard.Model.getInstance().state;
+
+    return '<div class="coursesCard widgetPlaceholder ' + state + '" id="' + this.getId() + '"></div>';
 };
 

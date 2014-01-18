@@ -11,6 +11,7 @@ sc.components.CoursesCard.Model = function() {
     goog.base(this);
     this.state = sc.components.CoursesCard.Model.State.OFF;
     this.courseModel = sc.models.CourseModel.getInstance();
+    this.onCoursesUpdated();
 
     goog.events.listen(this.courseModel,
         [sc.models.CourseModel.EventType.ADD_COURSE, sc.models.CourseModel.EventType.REMOVE_COURSE],
