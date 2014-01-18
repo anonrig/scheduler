@@ -77,6 +77,13 @@ sc.Application.prototype.initRouting = function() {
         controller: sc.controllers.SearchController,
         action: sc.controllers.SearchController.indexAction
     }));
+
+    router.addRoute(new tart.mvc.uri.Route({
+        name: 'detail',
+        format: 'detail/:id',
+        controller: sc.controllers.SearchController,
+        action: sc.controllers.SearchController.detailAction
+    }));
 };
 
 

@@ -1,10 +1,12 @@
 goog.provide('sc.components.Search.ListController');
 goog.require('sc.components.Search.ListView');
 goog.require('sc.components.Search.Model');
+goog.require('sc.components.Search.DetailController');
 goog.require('sc.components.Search.SidebarMenu');
 goog.require('sc.models.CourseModel');
 goog.require('tart.components.mobile.Controller');
 goog.require('tart.events');
+
 
 
 
@@ -16,6 +18,7 @@ goog.require('tart.events');
  */
 sc.components.Search.ListController = function() {
     goog.base(this);
+//    this.detailController = new sc.components.Search.DetailController();
 };
 goog.inherits(sc.components.Search.ListController, tart.components.mobile.Controller);
 
@@ -106,13 +109,24 @@ sc.components.Search.ListController.prototype.bindEvents = function() {
         });
     });
 
+    // goog.events.listen(listParent, tart.events.EventType.TAP, function(e) {
+    //     var element = e.target;
+    //     do {
+    //         var courseId = element.getAttribute('data-courseId');
+    //         if (!courseId) continue;
+
+    //         this.onCourseTap(element, courseId);
+    //         break;
+    //     } while ((element = element.parentElement) && element != this.getDOM());
+    // }, false, this);
+
     goog.events.listen(listParent, tart.events.EventType.TAP, function(e) {
         var element = e.target;
         do {
             var courseId = element.getAttribute('data-courseId');
             if (!courseId) continue;
+            var course = sc.models.CourseModel.getInstance().find(courseId);
 
-            this.onCourseTap(element, courseId);
             break;
         } while ((element = element.parentElement) && element != this.getDOM());
     }, false, this);

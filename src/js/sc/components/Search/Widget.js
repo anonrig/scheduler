@@ -23,3 +23,7 @@ sc.components.Search.Widget.prototype.controllerClass = sc.components.Search.Roo
 sc.components.Search.Widget.prototype.list = function() {
     this.controller.list();
 };
+
+sc.components.Search.Widget.prototype.detail = function(id) {
+	this.controller.detail(id);
+}

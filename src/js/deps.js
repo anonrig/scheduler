@@ -955,10 +955,12 @@ goog.addDependency('../../../../../sc/components/CoursesCard/RootView.js', ['sc.
 goog.addDependency('../../../../../sc/components/CoursesCard/Template.js', ['sc.components.CoursesCard.Template'], ['tart.components.mobile.Template', 'tart.date']);
 goog.addDependency('../../../../../sc/components/CoursesCard/Widget.js', ['sc.components.CoursesCard.Widget'], ['sc.components.CoursesCard.RootController', 'tart.components.mobile.Widget']);
 goog.addDependency('../../../../../sc/components/NavigationBar.js', ['sc.components.NavigationBar'], ['tart.components.NavigationBar']);
-goog.addDependency('../../../../../sc/components/Search/ListController.js', ['sc.components.Search.ListController'], ['sc.components.Search.ListView', 'sc.components.Search.Model', 'sc.components.Search.SidebarMenu', 'sc.models.CourseModel', 'tart.components.mobile.Controller', 'tart.events']);
+goog.addDependency('../../../../../sc/components/Search/DetailController.js', ['sc.components.Search.DetailController'], ['sc.components.Search.DetailView', 'sc.components.Search.Model', 'sc.components.Search.SidebarMenu', 'sc.models.CourseModel', 'tart.components.mobile.Controller', 'tart.events']);
+goog.addDependency('../../../../../sc/components/Search/DetailView.js', ['sc.components.Search.DetailView'], ['goog.style', 'sc.components.Search.Template', 'tart.components.mobile.View']);
+goog.addDependency('../../../../../sc/components/Search/ListController.js', ['sc.components.Search.ListController'], ['sc.components.Search.DetailController', 'sc.components.Search.ListView', 'sc.components.Search.Model', 'sc.components.Search.SidebarMenu', 'sc.models.CourseModel', 'tart.components.mobile.Controller', 'tart.events']);
 goog.addDependency('../../../../../sc/components/Search/ListView.js', ['sc.components.Search.ListView'], ['goog.style', 'sc.components.Search.Template', 'tart.components.mobile.View']);
 goog.addDependency('../../../../../sc/components/Search/Model.js', ['sc.components.Search.Model'], ['tart.components.mobile.Model']);
-goog.addDependency('../../../../../sc/components/Search/RootController.js', ['sc.components.Search.RootController'], ['sc.components.Search.ListController', 'sc.components.Search.RootView']);
+goog.addDependency('../../../../../sc/components/Search/RootController.js', ['sc.components.Search.RootController'], ['sc.components.Search.DetailController', 'sc.components.Search.ListController', 'sc.components.Search.RootView']);
 goog.addDependency('../../../../../sc/components/Search/RootView.js', ['sc.components.Search.RootView'], ['sc.components.Search.Template', 'tart.components.mobile.View']);
 goog.addDependency('../../../../../sc/components/Search/SidebarMenu.js', ['sc.components.Search.SidebarMenu'], ['sc.components.SidebarMenu']);
 goog.addDependency('../../../../../sc/components/Search/Template.js', ['sc.components.Search.Template'], ['tart.components.mobile.Template', 'tart.date']);

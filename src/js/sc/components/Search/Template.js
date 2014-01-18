@@ -73,14 +73,40 @@ sc.components.Search.Template.prototype.item = function(item) {
 
     goog.array.removeDuplicates(teachers);
 
-    var section = item['section'] == '0' ? '' : item['section'];
+    var section = item['section'] == '0' ? '' : ' - ' + item['section'];
 
-    return '<div class="item" data-courseId="' + item['id'] +'">' +
+    return '<div class="item" data-href="#!/detail/' + item['id'] + '" data-courseId="' + item['id'] +'">' +
             '<h3><strong>' + item['name'] + section + '</strong> ' + item['title'] + '</h3>' +
             '<h4>' + teachers.join(', ') + '</h4>' +
             '<p>' + times + '</p>' +
         '</div>';
 };
+
+sc.components.Search.Template.prototype.detailBase = function(item) {
+    return '<div class="detail view">' +
+//            this.detailItem(item) +
+        '</div>';
+};
+
+sc.components.Search.Template.prototype.detail = function(item) {
+    var times = item['informationList'].map(function(info) {
+        return 'Lecturer: ' + info['teacher'] + ', ' + this.formatDate_(info['startDate'], true) + ' - ' + this.formatDate_(info['endDate']) + ' @ ' + info['location'];
+    }, this).join('</p><p>');
+
+    var teachers = item['informationList'].map(function(info) {
+        return info['teacher'];
+    });
+
+    goog.array.removeDuplicates(teachers);
+
+    return '<div class="lecture" data-courseId="' + item['id'] +'">' +
+            '<div class="lecture info"><h3><strong>' + item['name'] + ' ' + item['section'] + '</strong> ' + item['title'] + '</h3></div>' +
+            '<div class="lecture id"><p>Course ID: ' + item['id'] + '</p>' +
+            '<div class="lecture locations"><p>' + times + '</p></div>' +
+            '<a class="lecture catalog" href="' + item['catalog'] + '"/>Catalog Link</a>' +
+        '</div>';
+}
+
 
 
 /**

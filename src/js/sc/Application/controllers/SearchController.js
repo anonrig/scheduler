@@ -28,3 +28,13 @@ sc.controllers.SearchController.indexAction = function() {
 
     this.setViewScript(sc.views.scripts.search.index);
 };
+
+sc.controllers.SearchController.detailAction = function() {
+	this.view.widget = this.controller.widget;
+
+    this.view.widget.detail(this.params['id']);
+
+    this.refresh = false;
+
+    this.setViewScript(sc.views.scripts.search.index);
+}
