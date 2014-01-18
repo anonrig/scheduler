@@ -97,3 +97,13 @@ sc.models.CourseModel.prototype.remove = function(chosenCourse) {
 
     return rv;
 };
+
+
+sc.models.CourseModel.prototype.getTotalHours = function() {
+    return this.selectedCourses.reduce(function(i, v) {
+        return i + v['informationList'].reduce(function(i, v) {
+            var hours = v['startDate'] == 'TBA' ? 0 : Math.floor((v['endDate'] - v['startDate']) / 50 / 60 / 1000);
+            return i + hours;
+        }, 0);
+    }, 0);
+};

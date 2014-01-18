@@ -40,8 +40,10 @@ sc.components.CoursesCard.ListView.prototype.list = function(items) {
         markup = items.map(this.template.item, this.template).join('');
     }
 
+    var stats = items.length + ' courses, ' + sc.models.CourseModel.getInstance().getTotalHours() + ' hours.';
+
     this.get(this.template.domMappings.LIST)[0].innerHTML = markup;
-    this.get(this.template.domMappings.COUNT)[0].innerHTML = items.length + ' courses';
+    this.get(this.template.domMappings.COUNT)[0].innerHTML = stats;
 };
 
 
