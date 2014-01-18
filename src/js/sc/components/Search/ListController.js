@@ -146,7 +146,7 @@ sc.components.Search.ListController.prototype.onCourseTap = function(element, co
         courseModel.add(chosenCourse);
         this.view.enableItemSelection(element, true);
     } catch(e) {
-        if (e.message == 'Already in the list') {
+        if (e.message == 'Already in the list.') {
             courseModel.remove(chosenCourse);
             this.view.enableItemSelection(element, false);
         }
