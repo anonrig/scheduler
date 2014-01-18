@@ -75,7 +75,7 @@ sc.components.Search.Template.prototype.item = function(item) {
 
     var section = item['section'] == '0' ? '' : ' - ' + item['section'];
 
-    return '<div class="item" data-href="#!/detail/' + item['id'] + '" data-courseId="' + item['id'] + '">' +
+    return '<div class="item" data-courseId="' + item['id'] + '">' +
             '<h3><strong>' + item['name'] + section + '</strong> ' + item['title'] + '</h3>' +
             '<h4>' + teachers.join(', ') + '</h4>' +
             '<p>' + times + '</p>' +

@@ -109,7 +109,7 @@ sc.components.Search.ListController.prototype.bindEvents = function() {
         });
     });
 
-    goog.events.listen(listParent, tart.events.EventType.SWIPE_RIGHT, function(e) {
+    goog.events.listen(listParent, tart.events.EventType.TAP, function(e) {
         console.log("swipe left");
         var element = e.target;
         do {
@@ -121,13 +121,12 @@ sc.components.Search.ListController.prototype.bindEvents = function() {
         } while ((element = element.parentElement) && element != this.getDOM());
     }, false, this);
 
-    goog.events.listen(listParent, tart.events.EventType.TAP, function(e) {
+    goog.events.listen(listParent, tart.events.EventType.SWIPE_LEFT, function(e) {
         var element = e.target;
         do {
             var courseId = element.getAttribute('data-courseId');
             if (!courseId) continue;
-            var course = sc.models.CourseModel.getInstance().find(courseId);
-
+            window.location = '#!/detail/' + courseId;
             break;
         } while ((element = element.parentElement) && element != this.getDOM());
     }, false, this);

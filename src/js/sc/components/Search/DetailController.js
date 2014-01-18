@@ -28,7 +28,13 @@ sc.components.Search.DetailController.prototype.viewClass = sc.components.Search
 sc.components.Search.DetailController.prototype.bindEvents = function() {
     var that = this,
         domMappings = this.view.template.domMappings,
-        outsideTapListener;
+        outsideTapListener,
+        listParent = goog.dom.query('.root')[0];
+
+        console.log(listParent);
+    // goog.events.listen(listParent, tart.events.EventType.SWIPE_LEFT, function(e) {
+    //     sc.router.redirectToRoute('search');
+    // }, false, this);
 };
 
 
