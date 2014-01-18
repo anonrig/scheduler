@@ -46,7 +46,7 @@ a {
     overflow: hidden;
     width: 100%;
     -webkit-transform: translate3d(0,0,0);
-    -webkit-transform-origin: 100% 0%;
+    -webkit-transform-origin: 100% 100%;
 }
 
 #common {
@@ -86,7 +86,7 @@ h4 {
 }
 
 #app.sidebarOn {
-    -webkit-transform: translate3d(-480px, 0, 0) rotateY(50deg) scale(0.9);
+    -webkit-transform: translate3d(-480px, 0, 0) rotateY(50deg) scale(0.95);
     /*opacity: 0.5;*/
     /*box-shadow: 0 0 30px rgba(0,0,0,0.4);*/
 }
