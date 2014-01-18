@@ -36,7 +36,17 @@ sc.components.Search.Template.prototype.base = function() {
 sc.components.Search.Template.prototype.listBase = function() {
     return '<div class="searchList view">' +
             this.search() +
-            '<div class="list courses"></div>' +
+            '<div class="list courses">' +
+                this.empty() +
+            '</div>' +
+        '</div>';
+};
+
+
+sc.components.Search.Template.prototype.empty = function() {
+    return '<div class="empty">' +
+            '<p>Search for a course by its ID, code, name or instructor.</p>' +
+            '<p>You can then add the course to your schedule.</p>' +
         '</div>';
 };
 
