@@ -950,7 +950,6 @@ goog.addDependency('../../../../../sc/Registry.js', ['sc.Registry'], ['tart.Regi
 goog.addDependency('../../../../../sc/components/CoursesCard/ListController.js', ['sc.components.CoursesCard.ListController'], ['sc.components.CoursesCard.ListView', 'sc.components.CoursesCard.Model', 'sc.models.CourseModel', 'tart.components.mobile.Controller']);
 goog.addDependency('../../../../../sc/components/CoursesCard/ListView.js', ['sc.components.CoursesCard.ListView'], ['goog.style', 'sc.components.CoursesCard.Template', 'tart.components.mobile.View']);
 goog.addDependency('../../../../../sc/components/CoursesCard/Model.js', ['sc.components.CoursesCard.Model'], ['tart.components.mobile.Model']);
-goog.addDependency('../../../../../sc/components/CoursesCard/Model/CourseCard.js', ['sc.components.CoursesCard.Model'], ['tart.components.mobile.Model']);
 goog.addDependency('../../../../../sc/components/CoursesCard/RootController.js', ['sc.components.CoursesCard.RootController'], ['sc.components.CoursesCard.ListController', 'sc.components.CoursesCard.RootView']);
 goog.addDependency('../../../../../sc/components/CoursesCard/RootView.js', ['sc.components.CoursesCard.RootView'], ['sc.components.CoursesCard.Template', 'tart.components.mobile.View']);
 goog.addDependency('../../../../../sc/components/CoursesCard/Template.js', ['sc.components.CoursesCard.Template'], ['tart.components.mobile.Template', 'tart.date']);

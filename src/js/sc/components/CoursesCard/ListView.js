@@ -42,7 +42,10 @@ sc.components.CoursesCard.ListView.prototype.list = function(items) {
 
     this.get(this.template.domMappings.LIST)[0].innerHTML = markup;
     this.get(this.template.domMappings.COUNT)[0].innerHTML = items.length + ' courses';
-
-    var el = goog.dom.query('.coursesCard')[0];
-    el && goog.dom.classes.enable(el, 'tab', items.length);
 };
+
+
+sc.components.CoursesCard.ListView.prototype.setState = function(state) {
+    var el = goog.dom.query('.coursesCard')[0];
+    el && (el.className = 'coursesCard widgetPlaceholder ' + state);
+}

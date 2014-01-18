@@ -8,6 +8,9 @@
     -webkit-transform: translate3d(0, 80%, 0);
 }
 
+.coursesCard.on {
+    -webkit-transform: translate3d(0, 10%, 0);;
+}
 
 .coursesCard .list {
     padding: 0 20px 20px;
@@ -16,8 +19,4 @@
 .coursesCard .count {
     text-align: right;
     padding: 10px;
-}
-
-.coursesCard.on {
-	-webkit-transform: 10%;
 }
