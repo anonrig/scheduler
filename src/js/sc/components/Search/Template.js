@@ -64,6 +64,8 @@ sc.components.Search.Template.prototype.search = function() {
 
 sc.components.Search.Template.prototype.item = function(item) {
     var times = item['informationList'].map(function(info) {
+        if (info['startDate'] == 'TBA') return 'TBA';
+
         return this.formatDate_(info['startDate'], true) + ' - ' + this.formatDate_(info['endDate']);
     }, this).join(', ');
 
@@ -107,10 +109,14 @@ sc.components.Search.Template.prototype.lecture = function(lecture) {
         replace('School of Management', 'FMAN').
         replace('Fac. of Engin. and Nat. Sci.', 'FENS');
 
+    var time = 'TBA';
+
+    if (lecture['startDate'] != 'TBA') time = this.formatDate_(lecture['startDate'], true) + ' - ' +
+        this.formatDate_(lecture['endDate']);
+
     return '<li>' +
             '<div class="lecture">' +
-                '<h3>' + this.formatDate_(lecture['startDate'], true) + ' - ' +
-                    this.formatDate_(lecture['endDate']) + '</h3>' +
+                '<h3>' + time + '</h3>' +
                 '<h4>@' + location + '</h4>' +
                 '<h5>' + lecture['teacher'] + '</h5>' +
             '</div>' +
@@ -127,9 +133,7 @@ sc.components.Search.Template.prototype.lecture = function(lecture) {
  * @private
  */
 sc.components.Search.Template.prototype.formatDate_ = function(date, opt_long) {
-    if (!date) return 'TBD';
-
     var pattern = 'H:m';
     if (opt_long) pattern = 'EE ' + pattern;
-    return tart.date.formatMilliseconds(+(new Date(date)), pattern, goog.i18n.TimeZone.createTimeZone(0));
+    return tart.date.formatMilliseconds(date, pattern, goog.i18n.TimeZone.createTimeZone(0));
 };
