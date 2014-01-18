@@ -84,9 +84,8 @@ sc.components.Search.Template.prototype.item = function(item) {
         '</div>';
 };
 
-sc.components.Search.Template.prototype.detailBase = function(item) {
+sc.components.Search.Template.prototype.detailBase = function() {
     return '<div class="detail view">' +
-//            this.detailItem(item) +
         '</div>';
 };
 
