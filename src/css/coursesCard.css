@@ -1,14 +1,13 @@
 .coursesCard {
     -webkit-transform: translate3d(0, 100%, 0);
-    -webkit-transition: 0.4s -webkit-transform cubic-bezier(.42,1.14,.56,1.06);
+    -webkit-transition: 0.4s all cubic-bezier(.42,1.14,.56,1.06);
     width: 590px;
     margin: 0 auto;
     border-radius: 10px;
-    box-shadow: 0 10px 24px 10px hsla(0, 0%, 20%,0.3), 0 0 0px 1px hsla(0, 0%, 0%, 0.3) inset, 0 0 4px 0px hsla(0, 100%, 100%, 0.5) inset;
 }
 
 .coursesCard .bg {
-    background: rgba(145,255,165,.3);
+    background: rgba(145,225,195,.53);
     opacity: 1;
     -webkit-transition: 0.5s all cubic-bezier(.42,1.14,.56,1.06);
     top: 0;
@@ -17,11 +16,12 @@
     left: 0;
     right: 0;
     z-index: 1;
+    border-radius: 10px;
 }
 
 .coursesCard .bg2 {
     background: url('../img/bg2.png') bottom;
-    opacity: 1;
+    opacity: .9;
     -webkit-transition: 0.5s all cubic-bezier(.42,1.14,.56,1.06);
     top: 0;
     position: absolute;
@@ -29,18 +29,25 @@
     left: 0;
     right: 0;
     z-index: 0;
+    border-radius: 10px;
 }
 
 .coursesCard.on .bg {
     opacity: 0;
 }
 
+.coursesCard.on .bg2 {
+    opacity: 1;
+}
+
 .coursesCard.tab {
     -webkit-transform: translate3d(0, calc(100% - 250px), 0);
+    box-shadow: 0 0px 84px 0px hsla(200, 60%, 30%,1);
 }
 
 .coursesCard.on {
-    -webkit-transform: translate3d(0, 0%, 0);;
+    -webkit-transform: translate3d(0, 0%, 0);
+    box-shadow: 0 0px 84px 0px hsla(220, 40%, 10%,1);
 }
 
 .coursesCard .list {
