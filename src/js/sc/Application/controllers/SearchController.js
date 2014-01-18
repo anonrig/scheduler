@@ -29,6 +29,10 @@ sc.controllers.SearchController.indexAction = function() {
     this.setViewScript(sc.views.scripts.search.index);
 };
 
+
+/**
+ * @this {tart.mvc.Action}
+ */
 sc.controllers.SearchController.detailAction = function() {
 	this.view.widget = this.controller.widget;
 
@@ -37,4 +41,4 @@ sc.controllers.SearchController.detailAction = function() {
     this.refresh = false;
 
     this.setViewScript(sc.views.scripts.search.index);
-}
+};

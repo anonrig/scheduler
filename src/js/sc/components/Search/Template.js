@@ -73,7 +73,7 @@ sc.components.Search.Template.prototype.item = function(item) {
 
     goog.array.removeDuplicates(teachers);
 
-    var section = item['section'] == '0' ? '' : ' - ' + item['section'];
+    var section = item['section'] == '0' ? '' : ' ' + item['section'];
     var selected = item['selected'] ? 'selected' : '';
 
     return '<div class="item ' + selected + '" data-courseId="' + item['id'] + '" data-href="#!/detail/' + item['id'] + '">' +
@@ -85,43 +85,51 @@ sc.components.Search.Template.prototype.item = function(item) {
 };
 
 sc.components.Search.Template.prototype.detailBase = function() {
-    return '<div class="detail view">' +
-        '</div>';
+    return '<div class="detail view"></div>';
 };
 
 sc.components.Search.Template.prototype.detail = function(item) {
-    var times = item['informationList'].map(function(info) {
-        return 'Lecturer: ' + info['teacher'] + ', ' + this.formatDate_(info['startDate'], true) + ' - ' + this.formatDate_(info['endDate']) + ' @ ' + info['location'];
-    }, this).join('</p><p>');
+    var times = item['informationList'].map(this.lecture, this).join('');
 
-    var teachers = item['informationList'].map(function(info) {
-        return info['teacher'];
-    });
+    var section = item['section'] == '0' ? '' : ' ' + item['section'];
 
-    goog.array.removeDuplicates(teachers);
-
-    return '<div class="lecture" data-courseId="' + item['id'] + '">' +
-            '<div class="info"><h3><strong>' + item['name'] + ' ' + item['section'] + '</strong> ' + item['title'] + '</h3></div>' +
-            '<div class="id"><p>Course ID: ' + item['id'] + '</p>' +
-            '<div class="locations"><p>' + times + '</p></div>' +
-            '<a class="catalog" href="' + item['catalog'] + '"/>Catalog Link</a>' +
-        '</div>';
+    return '<h1>' + item['name'] + section + '</h1>' +
+            '<h2>' + item['title'] + '</h2>' +
+            '<div class="id">Course ID: ' + item['id'] + '</div>' +
+            '<ol>' + times + '</ol>' +
+            '<div class="catalog"><a class="catalog" href="' + item['catalog'] + '"/>Catalog Link</a></div>';
 };
 
+
+sc.components.Search.Template.prototype.lecture = function(lecture) {
+    var location = lecture['location'].
+        replace('Fac.of Arts and Social Sci.', 'FASS').
+        replace('School of Management', 'FMAN').
+        replace('Fac. of Engin. and Nat. Sci.', 'FENS');
+
+    return '<li>' +
+            '<div class="lecture">' +
+                '<h3>' + this.formatDate_(lecture['startDate'], true) + ' - ' +
+                    this.formatDate_(lecture['endDate']) + '</h3>' +
+                '<h4>@' + location + '</h4>' +
+                '<h5>' + lecture['teacher'] + '</h5>' +
+            '</div>' +
+        '</li>';
+};
 
 
 /**
  * Formats a Date to a suitable range representation.
  *
  * @param {Date} date Date object to be formatted.
- * @param {boolean} long Whether the return value should include day name.
+ * @param {boolean=} opt_long Whether the return value should include day name.
  * @return {string} Date information.
  * @private
  */
-sc.components.Search.Template.prototype.formatDate_ = function(date, long) {
+sc.components.Search.Template.prototype.formatDate_ = function(date, opt_long) {
     if (!date) return 'TBD';
 
     var pattern = 'H:m';
-    if (long) pattern = 'EE ' + pattern;
+    if (opt_long) pattern = 'EE ' + pattern;
     return tart.date.formatMilliseconds(+(new Date(date)), pattern, goog.i18n.TimeZone.createTimeZone(0));
 };

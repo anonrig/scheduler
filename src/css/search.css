@@ -117,9 +117,79 @@
     -webkit-transform: translate3d(100%,0, 0);
 }
 
-.root .detail.view {
-    padding-top: 128px;
-    -webkit-transition: 0.3s background-color;
+.detail.view {
+    padding: 0 20px 20px;
+    height: auto;
+    top: 88px;
+    bottom: 0;
+}
+
+.device .detail.view {
+    top: 128px;
+}
+
+.detail.view h1 {
+    font-weight: 400;
+    font-size: 86px;
+    margin: 30px 0;
+}
+
+.detail.view h2 {
+    font-weight: 200;
+    font-size: 48px;
+    line-height:140%;
+    margin: 30px 0;
+}
+
+.detail.view h1, .detail.view h2, .detail.view .id {
+    text-align: center;
+}
+
+.detail.view ol {
+    margin: 0 30px;
+}
+
+.detail.view ol li {
+    font-size: 48px;
+    font-weight: 200;
+    padding-top: 10px;
+    margin: 50px 30px;
+    height: 170px;
+    color: rgba(255,255,255,0.5);
+}
+
+.detail.view .lecture {
+    position: absolute;
+    top: 0;
+    font-size: 24px;
+    font-weight: 200;
+    line-height: 120%;
+    color: white;
+}
+
+.detail.view h3 {
+    font-size: 48px;
+    font-weight: 500;
+}
+
+.detail.view h4 {
+    font-size: 36px;
+    font-weight: 500;
+}
+
+.detail.view h3, .detail.view h4, .detail.view h5 {
+    line-height: 120%;
+    margin: 0;
+}
+
+.detail.view h5 {
+    font-size: 36px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+}
+
+.detail.view .catalog {
+    text-align: center;
 }
 
 @-webkit-keyframes selection {

@@ -41,7 +41,7 @@ sc.components.Search.DetailController.prototype.detail = function(id) {
 	var course = sc.models.CourseModel.getInstance().find(id);
 	this.view.detail(course);
     sc.Registry.get('navigationBar').setConfig({
-        title: course['name'],
+        title: course['name'] + ' Details',
         backButtonText: '',
         backButtonAction: function() {
             sc.router.redirectToRoute('search');
