@@ -1,15 +1,19 @@
 .coursesCard {
     -webkit-transform: translate3d(0, 100%, 0);
-    -webkit-transition: 0.3s -webkit-transform cubic-bezier(.42,1.14,.56,1.06);
-    background: #333;
+    -webkit-transition: 0.4s -webkit-transform cubic-bezier(.42,1.14,.56,1.06);
+    background: hsla(289, 32%, 47%, 0.96);;
+    width: 590px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 24px 10px hsla(0, 0%, 20%,0.3), 0 0 0px 1px hsla(0, 0%, 0%, 0.3) inset, 0 0 4px 0px hsla(0, 100%, 100%, 0.5) inset;
 }
 
 .coursesCard.tab {
-    -webkit-transform: translate3d(0, 80%, 0);
+    -webkit-transform: translate3d(0, calc(100% - 250px), 0);
 }
 
 .coursesCard.on {
-    -webkit-transform: translate3d(0, 10%, 0);;
+    -webkit-transform: translate3d(0, 0%, 0);;
 }
 
 .coursesCard .list {
@@ -17,6 +21,32 @@
 }
 
 .coursesCard .count {
-    text-align: right;
-    padding: 10px;
+    padding: 25px 25px 25px;
+    font-size: 60px;
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+
+.courses.root.view {
+    width: 100%;
+}
+
+.coursesList.view {
+    width: 100%;
+}
+
+.coursesCard .courses.list .item {
+    background: none;
+}
+
+.coursesCard .courses.list {
+    padding: 0;
+    overflow: scroll;
+    top: 120px;
+    bottom: 140px;
+    position: absolute;
+}
+
+.coursesCard .courses.list h3 {
+    width: 565px;
 }

@@ -20,7 +20,7 @@
     padding-top: 128px;
 }
 
-.searchList .item {
+.courses .item {
     height: 148px;
     width: 100%;
     display: block;
@@ -31,29 +31,29 @@
     -webkit-transition: 0.3s background-color;
 }
 
-.searchList .item:active {
+.courses .item:active {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.searchList .item.selected {
+.courses .item.selected {
     background: hsla(110, 50%, 40%, 0.3);
 }
 
-.searchList .item p {
+.courses .item p {
     text-transform: uppercase;
     font-weight: 900;
     letter-spacing: -1px;
     color: rgba(255,255,255,0.6);
 }
 
-.searchList h3 {
+.courses h3 {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
     width: 605px;
 }
 
-.searchList h4 {
+.courses h4 {
     font-size: 24px;
     font-weight: 400;
     color: rgba(255,255,255,0.6);
@@ -75,6 +75,7 @@
     bottom: 0;
     overflow-y: scroll;
     width: 100%;
+    padding-bottom: 120px;
 }
 
 .device .searchList .list {

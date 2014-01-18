@@ -35,7 +35,7 @@ sc.components.CoursesCard.Template.prototype.base = function() {
 sc.components.CoursesCard.Template.prototype.listBase = function() {
     return '<div class="coursesList view">' +
             '<div class="count"></div>' +
-            '<div class="list"></div>' +
+            '<div class="list courses"></div>' +
         '</div>';
 };
 

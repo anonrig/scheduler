@@ -36,7 +36,7 @@ sc.components.Search.Template.prototype.base = function() {
 sc.components.Search.Template.prototype.listBase = function() {
     return '<div class="searchList view">' +
             this.search() +
-            '<div class="list"></div>' +
+            '<div class="list courses"></div>' +
         '</div>';
 };
 
