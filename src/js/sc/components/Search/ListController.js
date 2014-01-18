@@ -18,7 +18,7 @@ goog.require('tart.events');
  */
 sc.components.Search.ListController = function() {
     goog.base(this);
-//    this.detailController = new sc.components.Search.DetailController();
+    this.courseModel = sc.models.CourseModel.getInstance();
 };
 goog.inherits(sc.components.Search.ListController, tart.components.mobile.Controller);
 
@@ -75,7 +75,7 @@ sc.components.Search.ListController.prototype.bindEvents = function() {
             });
         };
 
-        return filter(db);
+        return filter(that.courseModel.allCourses);
     };
 
     goog.events.listen(input, goog.events.EventType.KEYUP, function() {
@@ -146,15 +146,14 @@ sc.components.Search.ListController.prototype.list = function() {
  * @param {string} courseId Course ID for the tapped element.
  */
 sc.components.Search.ListController.prototype.onCourseTap = function(element, courseId) {
-    var courseModel = sc.models.CourseModel.getInstance();
-    var chosenCourse = courseModel.find(courseId);
+    var chosenCourse = this.courseModel.find(courseId);
 
     try {
-        courseModel.add(chosenCourse);
+        this.courseModel.add(chosenCourse);
         this.view.enableItemSelection(element, true);
     } catch(e) {
         if (e.message == 'Already in the list.') {
-            courseModel.remove(chosenCourse);
+            this.courseModel.remove(chosenCourse);
             this.view.enableItemSelection(element, false);
         }
         else alert(e.message);

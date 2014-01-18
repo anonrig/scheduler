@@ -74,8 +74,9 @@ sc.components.Search.Template.prototype.item = function(item) {
     goog.array.removeDuplicates(teachers);
 
     var section = item['section'] == '0' ? '' : ' - ' + item['section'];
+    var selected = item['selected'] ? 'selected' : '';
 
-    return '<div class="item" data-courseId="' + item['id'] + '" data-href="#!/detail/' + item['id'] + '">' +
+    return '<div class="item ' + selected + '" data-courseId="' + item['id'] + '" data-href="#!/detail/' + item['id'] + '">' +
             '<h3><strong>' + item['name'] + section + '</strong> ' + item['title'] + '</h3>' +
             '<h4>' + teachers.join(', ') + '</h4>' +
             '<p>' + times + '</p>' +

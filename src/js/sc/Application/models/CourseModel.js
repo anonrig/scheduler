@@ -64,7 +64,7 @@ sc.models.CourseModel.prototype.add = function(chosenCourse) {
     if (this.collides(chosenCourse)) throw new Error(chosenCourse['title'] + ' collides.');
 
     this.selectedCourses.push(chosenCourse);
-
+    chosenCourse['selected'] = true;
     this.dispatchEvent(sc.models.CourseModel.EventType.ADD_COURSE);
 };
 
@@ -92,6 +92,7 @@ sc.models.CourseModel.prototype.count = function() {
 sc.models.CourseModel.prototype.remove = function(chosenCourse) {
     var rv = goog.array.remove(this.selectedCourses, chosenCourse);
 
+    rv && (chosenCourse['selected'] = false);
     rv && this.dispatchEvent(sc.models.CourseModel.EventType.REMOVE_COURSE);
 
     return rv;
