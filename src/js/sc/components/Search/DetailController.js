@@ -29,10 +29,9 @@ sc.components.Search.DetailController.prototype.bindEvents = function() {
     var that = this,
         domMappings = this.view.template.domMappings,
         outsideTapListener,
-        listParent = goog.dom.query('.root')[0];
+        listParent = this.getDOM();
 
-        console.log(listParent);
-    // goog.events.listen(listParent, tart.events.EventType.SWIPE_LEFT, function(e) {
+    // goog.events.listen(listParent, tart.events.EventType.SWIPE_RIGHT, function(e) {
     //     sc.router.redirectToRoute('search');
     // }, false, this);
 };
