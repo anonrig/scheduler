@@ -1,6 +1,6 @@
 .coursesCard {
     -webkit-transform: translate3d(0, 100%, 0);
-    -webkit-transition: 0.3s -webkit-transform;
+    -webkit-transition: 0.3s -webkit-transform cubic-bezier(.42,1.14,.56,1.06);
     background: #333;
 }
 
