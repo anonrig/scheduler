@@ -101,10 +101,10 @@ sc.components.Search.Template.prototype.detail = function(item) {
     goog.array.removeDuplicates(teachers);
 
     return '<div class="lecture" data-courseId="' + item['id'] + '">' +
-            '<div class="lecture info"><h3><strong>' + item['name'] + ' ' + item['section'] + '</strong> ' + item['title'] + '</h3></div>' +
-            '<div class="lecture id"><p>Course ID: ' + item['id'] + '</p>' +
-            '<div class="lecture locations"><p>' + times + '</p></div>' +
-            '<a class="lecture catalog" href="' + item['catalog'] + '"/>Catalog Link</a>' +
+            '<div class="info"><h3><strong>' + item['name'] + ' ' + item['section'] + '</strong> ' + item['title'] + '</h3></div>' +
+            '<div class="id"><p>Course ID: ' + item['id'] + '</p>' +
+            '<div class="locations"><p>' + times + '</p></div>' +
+            '<a class="catalog" href="' + item['catalog'] + '"/>Catalog Link</a>' +
         '</div>';
 };
 
