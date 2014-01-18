@@ -109,16 +109,17 @@ sc.components.Search.ListController.prototype.bindEvents = function() {
         });
     });
 
-    // goog.events.listen(listParent, tart.events.EventType.TAP, function(e) {
-    //     var element = e.target;
-    //     do {
-    //         var courseId = element.getAttribute('data-courseId');
-    //         if (!courseId) continue;
+    goog.events.listen(listParent, tart.events.EventType.SWIPE_RIGHT, function(e) {
+        console.log("swipe left");
+        var element = e.target;
+        do {
+            var courseId = element.getAttribute('data-courseId');
+            if (!courseId) continue;
 
-    //         this.onCourseTap(element, courseId);
-    //         break;
-    //     } while ((element = element.parentElement) && element != this.getDOM());
-    // }, false, this);
+            this.onCourseTap(element, courseId);
+            break;
+        } while ((element = element.parentElement) && element != this.getDOM());
+    }, false, this);
 
     goog.events.listen(listParent, tart.events.EventType.TAP, function(e) {
         var element = e.target;

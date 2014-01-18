@@ -33,17 +33,17 @@ sc.components.CoursesCard.ListController.prototype.bindEvents = function() {
 
     var mainDiv = this.getDOM();
 
-    goog.events.listen(mainDiv, tart.events.EventType.TAP, function(e){
+    goog.events.listen(mainDiv, tart.events.EventType.TAP, function(e) {
         if (this.cardModel.state == State.TAB) this.cardModel.setState(State.ON);
         else if (this.cardModel.state == State.ON && e.target.classList.contains('count'))
             this.cardModel.setState(State.TAB);
     }, false, this);
 
-    goog.events.listen(mainDiv, tart.events.EventType.SWIPE_UP, function(e){
+    goog.events.listen(mainDiv, tart.events.EventType.SWIPE_UP, function() {
         if (this.cardModel.state == State.TAB) this.cardModel.setState(State.ON);
     }, false, this);
 
-    goog.events.listen(mainDiv, tart.events.EventType.SWIPE_DOWN, function(e){
+    goog.events.listen(mainDiv, tart.events.EventType.SWIPE_DOWN, function() {
         if (!e.target.classList.contains('count')) return;
 
         if (this.cardModel.state == State.ON) this.cardModel.setState(State.TAB);

@@ -26,4 +26,4 @@ sc.components.Search.Widget.prototype.list = function() {
 
 sc.components.Search.Widget.prototype.detail = function(id) {
 	this.controller.detail(id);
-}
+};

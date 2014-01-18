@@ -1,11 +1,11 @@
 goog.provide('sc.components.Search.DetailController');
 goog.require('sc.components.Search.DetailView');
 goog.require('sc.components.Search.Model');
-goog.require('sc.models.CourseModel');
 goog.require('sc.components.Search.SidebarMenu');
 goog.require('sc.models.CourseModel');
 goog.require('tart.components.mobile.Controller');
 goog.require('tart.events');
+goog.require('sc.models.CourseModel');
 
 
 
@@ -37,6 +37,10 @@ sc.components.Search.DetailController.prototype.detail = function(id) {
 	this.view.detail(course);
     sc.Registry.get('navigationBar').setConfig({
         title: course['title'],
+        backButtonText: 'Back',
+        backButtonAction: function() {
+            sc.router.redirectToRoute('search');
+        },
         type: 'View',
         order: 1
     });

@@ -1,6 +1,6 @@
 goog.provide('sc.components.Search.DetailView');
-goog.require('sc.components.Search.Template');
 goog.require('goog.style');
+goog.require('sc.components.Search.Template');
 goog.require('tart.components.mobile.View');
 
 

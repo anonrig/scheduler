@@ -1,6 +1,6 @@
 goog.provide('sc.components.Search.RootController');
-goog.require('sc.components.Search.ListController');
 goog.require('sc.components.Search.DetailController');
+goog.require('sc.components.Search.ListController');
 goog.require('sc.components.Search.RootView');
 
 

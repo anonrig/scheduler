@@ -105,3 +105,8 @@
 .detail.view {
     -webkit-transform: translate3d(100%,0, 0);
 }
+
+.root .detail.view.active {
+    padding-top: 128px;
+    -webkit-transition: 0.3s background-color;
+}

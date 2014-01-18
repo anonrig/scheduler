@@ -1,6 +1,6 @@
 goog.provide('sc.components.CoursesCard.ListView');
-goog.require('sc.components.CoursesCard.Template');
 goog.require('goog.style');
+goog.require('sc.components.CoursesCard.Template');
 goog.require('tart.components.mobile.View');
 
 
@@ -48,4 +48,4 @@ sc.components.CoursesCard.ListView.prototype.list = function(items) {
 sc.components.CoursesCard.ListView.prototype.setState = function(state) {
     var el = goog.dom.query('.coursesCard')[0];
     el && (el.className = 'coursesCard widgetPlaceholder ' + state);
-}
+};

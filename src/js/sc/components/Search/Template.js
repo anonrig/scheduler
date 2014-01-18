@@ -75,7 +75,7 @@ sc.components.Search.Template.prototype.item = function(item) {
 
     var section = item['section'] == '0' ? '' : ' - ' + item['section'];
 
-    return '<div class="item" data-href="#!/detail/' + item['id'] + '" data-courseId="' + item['id'] +'">' +
+    return '<div class="item" data-href="#!/detail/' + item['id'] + '" data-courseId="' + item['id'] + '">' +
             '<h3><strong>' + item['name'] + section + '</strong> ' + item['title'] + '</h3>' +
             '<h4>' + teachers.join(', ') + '</h4>' +
             '<p>' + times + '</p>' +
@@ -99,13 +99,13 @@ sc.components.Search.Template.prototype.detail = function(item) {
 
     goog.array.removeDuplicates(teachers);
 
-    return '<div class="lecture" data-courseId="' + item['id'] +'">' +
+    return '<div class="lecture" data-courseId="' + item['id'] + '">' +
             '<div class="lecture info"><h3><strong>' + item['name'] + ' ' + item['section'] + '</strong> ' + item['title'] + '</h3></div>' +
             '<div class="lecture id"><p>Course ID: ' + item['id'] + '</p>' +
             '<div class="lecture locations"><p>' + times + '</p></div>' +
             '<a class="lecture catalog" href="' + item['catalog'] + '"/>Catalog Link</a>' +
         '</div>';
-}
+};
 
 
 
