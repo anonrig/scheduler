@@ -45,6 +45,12 @@ sc.disableEvents = function() {
         goog.base(this);
     }
     goog.inherits(tart.events.HoverHandler, goog.events.EventTarget);
+
+    var originalOnTouchend = tart.events.GestureHandler.prototype.onTouchend;
+    tart.events.GestureHandler.prototype.onTouchend = function(e) {
+        if (this.canTap) e.stopPropagation();
+        originalOnTouchend.call(this, e);
+    };
 };
 
 
