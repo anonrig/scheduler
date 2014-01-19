@@ -4,6 +4,7 @@
     width: 590px;
     margin: 0 auto;
     border-radius: 10px;
+    box-shadow: 0 0px 84px 0px hsla(200, 60%, 30%,1);
 }
 
 .coursesCard .bg {
@@ -42,7 +43,6 @@
 
 .coursesCard.tab {
     -webkit-transform: translate3d(0, calc(100% - 250px), 0);
-    box-shadow: 0 0px 84px 0px hsla(200, 60%, 30%,1);
 }
 
 .coursesCard.on {
