@@ -14,7 +14,7 @@ goog.require('tart.ui.ComponentManager');
  */
 sc.Bootstrapper = function() {
     sc.disableEvents();
-//    sc.setSwipeWindow();
+    sc.setSwipeWindow();
     sc.preventLayoutFlicker();
     sc.setViewClass();
     sc.Registry.get('eventManager', goog.events.EventTarget);
