@@ -5,7 +5,7 @@ goog.require('tart.dom');
 goog.require('tart.mvc');
 goog.require('tart.mvc.MobileRenderer');
 goog.require('tart.ui.DlgComponent');
-
+goog.require('tart.storage.Storage');
 
 
 /**
@@ -17,13 +17,23 @@ sc.Application = function() {
         sc.app.enableBridgeModeToIframe(false);
     }, 1000);
 
+    this.localStorage = new tart.storage.Storage();
 
-    this.defaultRoute = new tart.mvc.uri.Route({
-        name: 'default',
-        format: 'search',
-        controller: sc.controllers.SearchController,
-        action: sc.controllers.SearchController.indexAction
-    });
+    if (this.localStorage.get('selectedCourses')){
+        this.defaultRoute = new tart.mvc.uri.Route({
+            name: 'default',
+            format: 'schedule',
+            controller: sc.controllers.SearchController,
+            action: sc.controllers.SearchController.scheduleAction
+        });
+    } else {
+        this.defaultRoute = new tart.mvc.uri.Route({
+            name: 'default',
+            format: 'search',
+            controller: sc.controllers.SearchController,
+            action: sc.controllers.SearchController.indexAction
+        });
+    }
 
     goog.base(this, /** @type {HTMLElement} */(goog.dom.getElement('app')));
 
