@@ -50,6 +50,8 @@ sc.components.CoursesCard.ListView.prototype.list = function(items, hours) {
 
 
 sc.components.CoursesCard.ListView.prototype.setState = function(state) {
-    var el = goog.dom.query('.coursesCard')[0];
-    el && (el.className = 'coursesCard widgetPlaceholder ' + state);
+    setTimeout(function() {
+        var el = goog.dom.query('.coursesCard')[0];
+        el && (el.className = 'coursesCard widgetPlaceholder ' + state);
+    }, 30);
 };

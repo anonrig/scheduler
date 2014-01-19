@@ -28,26 +28,36 @@ sc.components.Search.RootController.prototype.viewClass = sc.components.Search.R
 
 
 sc.components.Search.RootController.prototype.list = function() {
-    this.listController.list();
+    var that = this;
 
     if (window.location.toString().indexOf('refresh') != -1) this.view.activeView = null;
 
-    this.view.setActiveView(this.listController.view);
+    setTimeout(function() {
+        that.listController.list();
+        that.view.setActiveView(that.listController.view);
+    }, 1);
 };
 
 sc.components.Search.RootController.prototype.detail = function(id) {
-    this.detailController.detail(id);
+    var that = this;
+
+    this.detailController.detawil(id);
 
     if (window.location.toString().indexOf('refresh') != -1) this.view.activeView = null;
 
-    this.view.setActiveView(this.detailController.view);
+    setTimeout(function() {
+        that.view.setActiveView(that.detailController.view);
+    }, 1);
 };
 
 
 sc.components.Search.RootController.prototype.schedule = function() {
-    this.scheduleController.schedule();
+    var that = this;
 
     if (window.location.toString().indexOf('refresh') != -1) this.view.activeView = null;
 
-    this.view.setActiveView(this.scheduleController.view);
+    setTimeout(function() {
+        that.scheduleController.schedule();
+        that.view.setActiveView(that.scheduleController.view);
+    }, 1);
 };

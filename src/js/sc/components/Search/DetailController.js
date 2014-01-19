@@ -35,13 +35,15 @@ sc.components.Search.DetailController.prototype.bindEvents = function() {
 sc.components.Search.DetailController.prototype.detail = function(id) {
 	var course = sc.models.CourseModel.getInstance().find(id);
 	this.view.detail(course);
-    sc.Registry.get('navigationBar').setConfig({
-        title: course['name'] + ' Details',
-        backButtonText: '',
-        backButtonAction: function() {
-            sc.router.redirectToRoute('search');
-        },
-        type: 'Search',
-        order: 2
-    });
+    setTimeout(function() {
+        sc.Registry.get('navigationBar').setConfig({
+            title: course['name'] + ' Details',
+            backButtonText: '',
+            backButtonAction: function() {
+                sc.router.redirectToRoute('search');
+            },
+            type: 'Search',
+            order: 2
+        });
+    }, 1);
 };
