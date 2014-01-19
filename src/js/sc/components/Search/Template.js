@@ -54,6 +54,8 @@ sc.components.Search.Template.prototype.empty = function() {
 sc.components.Search.Template.prototype.search = function() {
     return '<div class="search">' +
             '<i class="icon-search"></i>' +
+            '<form name="search">' +
+                '<input type="text" class="search" placeholder="Type at least 3 letters to search" />' +
             '<form name="search" onsubmit="return false;">' +
                 '<input type="text" class="search" placeholder="Enter course ID, code or name" />' +
             '</form>' +
