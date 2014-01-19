@@ -132,9 +132,9 @@ sc.components.Search.Template.prototype.lecture = function(lecture) {
  * @private
  */
 sc.components.Search.Template.prototype.formatDate_ = function(date, opt_long) {
-    var pattern = 'H:m';
+    var pattern = 'H:mm';
     if (opt_long) pattern = 'EE ' + pattern;
-    return tart.date.formatMilliseconds(date, pattern, goog.i18n.TimeZone.createTimeZone(0));
+    return tart.date.formatMilliseconds(date, pattern, goog.i18n.TimeZone.createTimeZone(-120));
 };
 
 
@@ -181,7 +181,7 @@ sc.components.Search.Template.prototype.scheduleBase = function() {
             height = courseDuration * 90;
 
             var dayBeginning = new Date(lecture.lecture['startDate']);
-            dayBeginning.setUTCHours(8);
+            dayBeginning.setUTCHours(6);
             dayBeginning.setUTCMinutes(40);
             var top = Math.floor((lecture.lecture['startDate'] - dayBeginning) / 50 / 60 / 1000) * 90;
 

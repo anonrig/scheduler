@@ -46,6 +46,8 @@ sc.components.CoursesCard.Template.prototype.listBase = function(items, hours) {
 
 sc.components.CoursesCard.Template.prototype.item = function(item) {
     var times = item['informationList'].map(function(info) {
+        if (info['startDate'] == 'TBA') return 'TBA';
+
         return this.formatDate_(info['startDate'], true) + ' - ' + this.formatDate_(info['endDate']);
     }, this).join(', ');
 
@@ -74,9 +76,7 @@ sc.components.CoursesCard.Template.prototype.item = function(item) {
  * @private
  */
 sc.components.CoursesCard.Template.prototype.formatDate_ = function(date, long) {
-    if (!date) return 'TBD';
-
-    var pattern = 'H:m';
+    var pattern = 'H:mm';
     if (long) pattern = 'EE ' + pattern;
-    return tart.date.formatMilliseconds(+(new Date(date)), pattern, goog.i18n.TimeZone.createTimeZone(0));
+    return tart.date.formatMilliseconds(date, pattern, goog.i18n.TimeZone.createTimeZone(-120));
 };
