@@ -145,19 +145,23 @@ sc.components.Search.Template.prototype.scheduleBase = function() {
 
 
 (function() {
-    var dayHeight = 0;
-    var dayNames = 'MTWTFSS'.split('');
+    var dayNames = 'MTWTFSS'.split(''),
+        dayHeight = 0,
+        minTop = 1000;
 
     sc.components.Search.Template.prototype.schedule = function(coursesByDays) {
-        var hasSaturday = !!coursesByDays[5],
-            saturdayClass = hasSaturday ? 'hasSaturday' : '';
+        minTop = 1000;
 
-        return '<div class="titles ' + saturdayClass + '">' +
+        var hasSaturday = !!coursesByDays[5],
+            saturdayClass = hasSaturday ? 'hasSaturday' : '',
+            days = coursesByDays.map(this.scheduleDay.bind(this, hasSaturday), this).join(''),
+            top = minTop == 0 ? 0 : 30 - minTop;
+
+        return '<style>.schedule.view .day { margin-top: ' + top + 'px }</style>' +
+            '<div class="titles ' + saturdayClass + '">' +
                 coursesByDays.map(this.scheduleDayName, this).join('') +
             '</div>' +
-            '<div class="days ' + saturdayClass + '">' +
-                coursesByDays.map(this.scheduleDay.bind(this, hasSaturday), this).join('') +
-            '</div>';
+            '<div class="days ' + saturdayClass + '">' + days + '</div>';
     };
 
 
@@ -169,23 +173,23 @@ sc.components.Search.Template.prototype.scheduleBase = function() {
     sc.components.Search.Template.prototype.scheduleDay = function(isSlim, day) {
         dayHeight = 0;
 
-        return '<div class="day" style="height:' + dayHeight + 'px">' +
-                day.map(this.scheduleLecture.bind(this, isSlim), this).join('') +
-            '</div>';
+        var dayMarkup = day.map(this.scheduleLecture.bind(this, isSlim), this).join('');
+
+        return '<div class="day" style="height:' + dayHeight + 'px">' + dayMarkup + '</div>';
     };
 
 
     sc.components.Search.Template.prototype.scheduleLecture = function(isSlim, lecture) {
         var time = this.formatDate_(lecture.lecture['startDate']) + ' - ' + this.formatDate_(lecture.lecture['endDate']),
             courseDuration = Math.floor((lecture.lecture['endDate'] - lecture.lecture['startDate']) / 50 / 60 / 1000),
-            height = courseDuration * 90;
-
-            var dayBeginning = new Date(lecture.lecture['startDate']);
+            height = courseDuration * 90,
+            dayBeginning = new Date(lecture.lecture['startDate']);
             dayBeginning.setUTCHours(6);
             dayBeginning.setUTCMinutes(40);
             var top = Math.floor((lecture.lecture['startDate'] - dayBeginning) / 50 / 60 / 1000) * 90;
 
         dayHeight = Math.max(dayHeight, height + top);
+        if (height > 0) minTop = Math.min(minTop, top);
 
         return '<div style="height: ' + height + 'px; top: ' + top + 'px" class="lecture">' +
                 this.scheduleLectureName(lecture, isSlim) +
