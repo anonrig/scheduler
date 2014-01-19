@@ -33,6 +33,6 @@ sc.components.Search.ScheduleView.prototype.render = function() {
 };
 
 
-sc.components.Search.ScheduleView.prototype.schedule = function(item) {
-    this.getDOM().innerHTML = this.template.schedule(item);
+sc.components.Search.ScheduleView.prototype.schedule = function() {
+    this.getDOM().innerHTML = this.template.schedule();
 };

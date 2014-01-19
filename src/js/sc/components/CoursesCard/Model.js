@@ -39,10 +39,15 @@ sc.components.CoursesCard.Model.EventType = {
 };
 
 
-sc.components.CoursesCard.Model.prototype.setState = function(newState, force) {
+/**
+ *
+ * @param {sc.components.CoursesCard.Model.State} newState New state to set the card.
+ * @param {boolean=} opt_force Whether to force the new state. Otherwise it will be decided with a state machine.
+ */
+sc.components.CoursesCard.Model.prototype.setState = function(newState, opt_force) {
     var State = sc.components.CoursesCard.Model.State;
 
-    if (force || (this.state == State.OFF || this.state == State.ON) && (newState == State.TAB) ||
+    if (opt_force || (this.state == State.OFF || this.state == State.ON) && (newState == State.TAB) ||
         (this.state == State.TAB) && (newState == State.OFF || newState == State.ON)) {
         this.state = newState;
     }

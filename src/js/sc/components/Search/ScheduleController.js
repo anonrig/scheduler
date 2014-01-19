@@ -32,9 +32,8 @@ sc.components.Search.ScheduleController.prototype.bindEvents = function() {
 };
 
 
-sc.components.Search.ScheduleController.prototype.schedule = function(id) {
-	var course = sc.models.CourseModel.getInstance().find(id);
-	this.view.schedule(course);
+sc.components.Search.ScheduleController.prototype.schedule = function() {
+	this.view.schedule();
     sc.Registry.get('navigationBar').setConfig({
         title: 'Schedule',
         type: 'Search',
