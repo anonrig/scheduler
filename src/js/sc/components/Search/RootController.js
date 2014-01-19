@@ -41,7 +41,7 @@ sc.components.Search.RootController.prototype.list = function() {
 sc.components.Search.RootController.prototype.detail = function(id) {
     var that = this;
 
-    this.detailController.detawil(id);
+    this.detailController.detail(id);
 
     if (window.location.toString().indexOf('refresh') != -1) this.view.activeView = null;
 
