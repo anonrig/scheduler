@@ -257,8 +257,8 @@
 }
 
 .schedule.view .lecture {
-    box-shadow: 0 1px hsla(0, 100%, 100%, 0.3);
-    border-top: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 1px hsla(0, 100%, 100%, 0.1);
+    border-top: 1px solid rgba(255,255,255,0.1);
     background: rgba(255,255,255,0.03);
     padding: 5px 0;
     position: absolute;

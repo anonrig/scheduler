@@ -121,3 +121,10 @@ h4 {
     top: -100%;
     left: -100%;
 }
+
+.scrollFixer {
+    position: absolute;
+    z-index: -1;
+    height: 101%;
+    width: 50%;
+}

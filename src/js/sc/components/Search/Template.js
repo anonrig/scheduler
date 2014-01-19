@@ -161,7 +161,10 @@ sc.components.Search.Template.prototype.scheduleBase = function() {
             '<div class="titles ' + saturdayClass + '">' +
                 coursesByDays.map(this.scheduleDayName, this).join('') +
             '</div>' +
-            '<div class="days ' + saturdayClass + '">' + days + '</div>';
+            '<div class="days ' + saturdayClass + '">' +
+                '<div class="scrollFixer"></div>' +
+                days +
+            '</div>';
     };
 
 
