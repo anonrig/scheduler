@@ -1,6 +1,8 @@
 require 'nokogiri'
 require 'json'
 require 'time'
+require 'net/http'
+require 'uri'
 
 doc = Nokogiri(File.open('bannerweb.html'))
 
@@ -43,7 +45,18 @@ items.css('tr').each_slice(2) do |row_pair|
 			lecture['name'] = splitted[3]
 			lecture['section'] = splitted[4]
 		end
-		lecture['catalog'] = "https://suis.sabanciuniv.edu#{row_pair[1].css('td.dddefault a')[0]['href']}"
+		lecture['catalog'] = "http://suis.sabanciuniv.edu#{row_pair[1].css('td.dddefault a')[0]['href']}"
+		begin 
+			lectureDetail = Nokogiri(Net::HTTP.get(URI.parse(lecture['catalog'])))
+			lecture['summary'] = lectureDetail.css('td.ntdefault').to_s.split('<br>')[0].split('</i>')[1].gsub("\n", " ").strip!
+			lecture['levels'] = lectureDetail.css('td.ntdefault').to_s.split("</span>")[1].split('<br>')[0].strip!
+		rescue Exception => e
+			p lecture['title']
+			p lecture["id"]
+			p lecture['catalog']
+			p lectureDetail.css('td.ntdefault').to_s
+			p e.message
+		end	
 	end
 
 	informationList = Array.new
@@ -55,8 +68,8 @@ items.css('tr').each_slice(2) do |row_pair|
 				tds.each_slice(tds.count) do |item|
 					information = Hash.new
 					dayCount = item[2].text
-					information['location'] = item[3].text
-					information['teacher'] = item[6].text
+					information['location'] = item[3].text.gsub("Fac.of Arts and Social Sci.", "FASS").gsub("School of Management", "FMAN").gsub("Fac. of Engin. and Nat. Sci.", "FENS").gsub("School of Languages Building", "SL")
+					information['teacher'] = item[6].text.gsub(" (P)", "")
 
 					if (item[1].text != "TBA" && item[3].text != "TBA")
 						whichDays = Array.new
