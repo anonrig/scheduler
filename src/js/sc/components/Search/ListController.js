@@ -33,7 +33,8 @@ sc.components.Search.ListController.prototype.bindEvents = function() {
         outsideTapListener,
         input = this.view.get(domMappings.SEARCH_INPUT)[0],
         clear = this.view.get(domMappings.SEARCH_CLEAR)[0],
-        listParent = this.view.get('.list')[0];
+        listParent = this.view.get(domMappings.LIST)[0],
+        form = this.view.get(domMappings.FORM)[0];
 
 
     var search = function(key) {
@@ -126,6 +127,11 @@ sc.components.Search.ListController.prototype.bindEvents = function() {
 
     goog.events.listen(input, goog.events.EventType.BLUR, function() {
         goog.events.unlistenByKey(outsideTapListener);
+    });
+
+    goog.events.listen(form, goog.events.EventType.SUBMIT, function(e) {
+        e.preventDefault();
+        input.blur();
     });
 };
 

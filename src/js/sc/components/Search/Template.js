@@ -16,7 +16,8 @@ sc.components.Search.Template = function() {
     this.domMappings = {
         SEARCH_INPUT: 'input',
         SEARCH_CLEAR: '.clear',
-        LIST: '.list'
+        LIST: '.list',
+        FORM: 'form'
     };
 };
 goog.inherits(sc.components.Search.Template, tart.components.mobile.Template);
@@ -56,8 +57,6 @@ sc.components.Search.Template.prototype.search = function() {
             '<i class="icon-search"></i>' +
             '<form name="search">' +
                 '<input type="text" class="search" placeholder="Type at least 3 letters to search" />' +
-            '<form name="search" onsubmit="return false;">' +
-                '<input type="text" class="search" placeholder="Enter course ID, code or name" />' +
             '</form>' +
             '<div class="clear" style="display: none"><i class="icon-close"></i></div>' +
         '</div>';
