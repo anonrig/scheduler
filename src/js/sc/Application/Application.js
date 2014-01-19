@@ -1,5 +1,6 @@
 goog.provide('sc.Application');
 goog.require('sc.controllers.SearchController');
+goog.require('sc.controllers.LoginController');
 goog.require('sc.views.layouts.common');
 goog.require('tart.dom');
 goog.require('tart.mvc');
@@ -18,23 +19,31 @@ sc.Application = function() {
     }, 1000);
 
     this.localStorage = new tart.storage.Storage();
-
-    if (this.localStorage.get('selectedCourses')){
-        this.defaultRoute = new tart.mvc.uri.Route({
-            name: 'default',
-            format: 'schedule',
-            controller: sc.controllers.SearchController,
-            action: sc.controllers.SearchController.scheduleAction
-        });
+    console.log(this.localStorage.get('seenCarousel'));
+    if (this.localStorage.get('seenCarousel')){
+        if (this.localStorage.get('selectedCourses')){
+            this.defaultRoute = new tart.mvc.uri.Route({
+                name: 'default',
+                format: 'schedule',
+                controller: sc.controllers.SearchController,
+                action: sc.controllers.SearchController.scheduleAction
+            });
+        } else {
+            this.defaultRoute = new tart.mvc.uri.Route({
+                name: 'default',
+                format: 'search',
+                controller: sc.controllers.SearchController,
+                action: sc.controllers.SearchController.indexAction
+            });
+        }
     } else {
         this.defaultRoute = new tart.mvc.uri.Route({
             name: 'default',
-            format: 'search',
-            controller: sc.controllers.SearchController,
-            action: sc.controllers.SearchController.indexAction
+            format: 'login',
+            controller: sc.controllers.LoginController,
+            action: sc.controllers.LoginController.indexAction
         });
     }
-
     goog.base(this, /** @type {HTMLElement} */(goog.dom.getElement('app')));
 
     goog.events.listen(sc.Registry.get('eventManager'), sc.Application.EventType.REFRESH, this.onNavigate, false, this);
@@ -126,6 +135,13 @@ sc.Application.prototype.initRouting = function() {
         format: 'schedule/:refresh',
         controller: sc.controllers.SearchController,
         action: sc.controllers.SearchController.scheduleAction
+    }));
+
+     router.addRoute(new tart.mvc.uri.Route({
+        name: 'login',
+        format: 'login',
+        controller: sc.controllers.LoginController,
+        action: sc.controllers.LoginController.indexAction
     }));
 };
 
