@@ -27,8 +27,9 @@
     display: block;
     overflow: hidden;
     padding: 20px 0 20px 20px;
-    background-color: rgba(0, 0, 0, 0.3);
+    /*background-color: rgba(0, 0, 0, 0.3);*/
     border-top: 1px solid rgba(255, 255, 255, 0.2);
+    /*-webkit-transition: 0.3s background-color;*/
     -webkit-transform-origin: 0% 100%;
     -webkit-transform: translate3d(0,0,0);
 }
@@ -43,7 +44,7 @@
 }
 
 .courses .item:active {
-    background-color: rgba(0, 0, 0, 0.5);
+    /*background-color: rgba(0, 0, 0, 0.2);*/
 }
 
 .courses .item.selected {
