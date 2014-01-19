@@ -119,7 +119,7 @@
 }
 
 .detail.view {
-    padding: 0 20px 20px;
+    padding: 0 20px 80px;
     height: auto;
     top: 88px;
     bottom: 0;
@@ -144,6 +144,10 @@
 
 .detail.view h1, .detail.view h2, .detail.view .id {
     text-align: center;
+}
+
+.detail.view .id {
+    font-weight: 300;
 }
 
 .detail.view ol {
@@ -189,8 +193,10 @@
     color: rgba(255,255,255,0.5);
 }
 
-.detail.view .catalog {
-    text-align: center;
+.detail.view h2 + p {
+    padding: 0 30px;
+    line-height: 160%;
+    text-align: justify;
 }
 
 @-webkit-keyframes selection {

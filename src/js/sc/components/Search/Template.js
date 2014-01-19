@@ -95,21 +95,19 @@ sc.components.Search.Template.prototype.detail = function(item) {
     var times = item['informationList'].map(this.lecture, this).join('');
 
     var section = item['section'] == '0' ? '' : ' ' + item['section'];
+    var summary = item['summary'] ? '<h2>Summary</h2><p>' + item['summary'] + '</p>' : '';
+    var levels = item['levels'] ? '<h2>Levels</h2><p>' + item['levels'] + '</p>' : '';
 
     return '<h1>' + item['name'] + section + '</h1>' +
             '<h2>' + item['title'] + '</h2>' +
             '<div class="id">Course ID: ' + item['id'] + '</div>' +
             '<ol>' + times + '</ol>' +
-            '<div class="catalog"><a class="catalog" href="' + item['catalog'] + '"/>Catalog Link</a></div>';
+            summary +
+            levels;
 };
 
 
 sc.components.Search.Template.prototype.lecture = function(lecture) {
-    var location = lecture['location'].
-        replace('Fac.of Arts and Social Sci.', 'FASS').
-        replace('School of Management', 'FMAN').
-        replace('Fac. of Engin. and Nat. Sci.', 'FENS');
-
     var time = 'TBA';
 
     if (lecture['startDate'] != 'TBA') time = this.formatDate_(lecture['startDate'], true) + ' - ' +
@@ -118,7 +116,7 @@ sc.components.Search.Template.prototype.lecture = function(lecture) {
     return '<li>' +
             '<div class="lecture">' +
                 '<h3>' + time + '</h3>' +
-                '<h4>@' + location + '</h4>' +
+                '<h4>@' + lecture['location'] + '</h4>' +
                 '<h5>' + lecture['teacher'] + '</h5>' +
             '</div>' +
         '</li>';
