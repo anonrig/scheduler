@@ -10,11 +10,12 @@ goog.require('tart.storage.Storage');
  * @extends {tart.components.mobile.Controller}
  */
 sc.components.Login.Controller = function() {
+    this.localStorage = new tart.storage.Storage();
     goog.base(this);
 
     this.activeItem = 0;
 
-    this.localStorage = new tart.storage.Storage();
+
 };
 goog.inherits(sc.components.Login.Controller, tart.components.mobile.Controller);
 
