@@ -168,9 +168,10 @@ sc.components.Search.Template.prototype.scheduleBase = function() {
 
     sc.components.Search.Template.prototype.scheduleDay = function(isSlim, day) {
         dayHeight = 0;
-        var day = day.map(this.scheduleLecture.bind(this, isSlim), this).join('');
 
-        return '<div class="day" style="height:' + dayHeight + 'px">' + day + '</div>';
+        return '<div class="day" style="height:' + dayHeight + 'px">' +
+                day.map(this.scheduleLecture.bind(this, isSlim), this).join('') +
+            '</div>';
     };
 
 
