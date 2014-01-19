@@ -2,6 +2,7 @@ goog.provide('sc.components.Search.RootController');
 goog.require('sc.components.Search.DetailController');
 goog.require('sc.components.Search.ListController');
 goog.require('sc.components.Search.RootView');
+goog.require('sc.components.Search.ScheduleController');
 
 
 
@@ -16,8 +17,8 @@ sc.components.Search.RootController = function() {
 
     this.listController = new sc.components.Search.ListController();
     this.detailController = new sc.components.Search.DetailController();
-    this.view.addSubView(this.listController.view);
-    this.view.addSubView(this.detailController.view);
+    this.scheduleController = new sc.components.Search.ScheduleController();
+    this.view.setSubViews([this.scheduleController.view, this.listController.view, this.detailController.view]);
 };
 goog.inherits(sc.components.Search.RootController, tart.components.mobile.Controller);
 
@@ -34,4 +35,10 @@ sc.components.Search.RootController.prototype.list = function() {
 sc.components.Search.RootController.prototype.detail = function(id) {
     this.detailController.detail(id);
     this.view.setActiveView(this.detailController.view);
+};
+
+
+sc.components.Search.RootController.prototype.schedule = function(id) {
+    this.scheduleController.schedule();
+    this.view.setActiveView(this.scheduleController.view);
 };

@@ -22,7 +22,7 @@ sc.components.Search.ListView.prototype.templateClass = sc.components.Search.Tem
 
 
 /** @override */
-sc.components.Search.ListView.prototype.index = 0;
+sc.components.Search.ListView.prototype.index = 1;
 
 
 /**

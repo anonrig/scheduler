@@ -22,7 +22,7 @@ sc.components.Search.DetailView.prototype.templateClass = sc.components.Search.T
 
 
 /** @override */
-sc.components.Search.DetailView.prototype.index = 1;
+sc.components.Search.DetailView.prototype.index = 2;
 
 
 /**
@@ -34,7 +34,5 @@ sc.components.Search.DetailView.prototype.render = function() {
 
 
 sc.components.Search.DetailView.prototype.detail = function(item) {
-    var markup = '';
-
     this.getDOM().innerHTML = this.template.detail(item);
 };

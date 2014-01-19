@@ -42,6 +42,18 @@ sc.Application.EventType = {
 
 
 /**
+ * @override
+ */
+sc.Application.prototype.onNavigate = function() {
+    goog.base(this, 'onNavigate');
+    sc.Registry.get('eventManager').dispatchEvent({
+        type: sc.Application.EventType.ON_NAVIGATE,
+        url: window.location
+    });
+};
+
+
+/**
  * @return {tart.mvc.MobileRenderer} Renderer for the application.
  */
 sc.Application.prototype.getRenderer = function() {
@@ -83,6 +95,13 @@ sc.Application.prototype.initRouting = function() {
         format: 'detail/:id',
         controller: sc.controllers.SearchController,
         action: sc.controllers.SearchController.detailAction
+    }));
+
+    router.addRoute(new tart.mvc.uri.Route({
+        name: 'schedule',
+        format: 'schedule',
+        controller: sc.controllers.SearchController,
+        action: sc.controllers.SearchController.scheduleAction
     }));
 };
 

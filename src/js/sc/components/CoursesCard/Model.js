@@ -39,10 +39,10 @@ sc.components.CoursesCard.Model.EventType = {
 };
 
 
-sc.components.CoursesCard.Model.prototype.setState = function(newState) {
+sc.components.CoursesCard.Model.prototype.setState = function(newState, force) {
     var State = sc.components.CoursesCard.Model.State;
 
-    if ((this.state == State.OFF || this.state == State.ON) && (newState == State.TAB) ||
+    if (force || (this.state == State.OFF || this.state == State.ON) && (newState == State.TAB) ||
         (this.state == State.TAB) && (newState == State.OFF || newState == State.ON)) {
         this.state = newState;
     }

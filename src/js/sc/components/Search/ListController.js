@@ -110,7 +110,6 @@ sc.components.Search.ListController.prototype.bindEvents = function() {
     });
 
     goog.events.listen(listParent, tart.events.EventType.SWIPE_LEFT, function(e) {
-        console.log("swipe left");
         var element = e.target;
         do {
             var courseId = element.getAttribute('data-courseId');
@@ -122,6 +121,7 @@ sc.components.Search.ListController.prototype.bindEvents = function() {
     }, false, this);
 
     goog.events.listen(listParent, tart.events.EventType.SWIPE_RIGHT, function(e) {
+        sc.router.redirectToRoute('schedule');
     }, false, this);
 
     goog.events.listen(input, goog.events.EventType.BLUR, function() {
@@ -133,8 +133,12 @@ sc.components.Search.ListController.prototype.bindEvents = function() {
 sc.components.Search.ListController.prototype.list = function() {
     sc.Registry.get('navigationBar').setConfig({
         title: 'Search Courses',
+        backButtonText: '',
+        backButtonAction: function() {
+            sc.router.redirectToRoute('schedule');
+        },
         type: 'Search',
-        order: 0
+        order: 1
     });
 };
 

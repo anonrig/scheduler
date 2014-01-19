@@ -137,3 +137,14 @@ sc.components.Search.Template.prototype.formatDate_ = function(date, opt_long) {
     if (opt_long) pattern = 'EE ' + pattern;
     return tart.date.formatMilliseconds(date, pattern, goog.i18n.TimeZone.createTimeZone(0));
 };
+
+
+sc.components.Search.Template.prototype.scheduleBase = function() {
+    return '<div class="schedule view">' +
+        '</div>';
+};
+
+
+sc.components.Search.Template.prototype.schedule = function() {
+    return '';
+};

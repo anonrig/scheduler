@@ -27,3 +27,7 @@ sc.components.Search.Widget.prototype.list = function() {
 sc.components.Search.Widget.prototype.detail = function(id) {
 	this.controller.detail(id);
 };
+
+sc.components.Search.Widget.prototype.schedule = function(id) {
+	this.controller.schedule();
+};

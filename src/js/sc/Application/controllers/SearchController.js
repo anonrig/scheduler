@@ -42,3 +42,17 @@ sc.controllers.SearchController.detailAction = function() {
 
     this.setViewScript(sc.views.scripts.search.index);
 };
+
+
+/**
+ * @this {tart.mvc.Action}
+ */
+sc.controllers.SearchController.scheduleAction = function() {
+	this.view.widget = this.controller.widget;
+
+    this.view.widget.schedule();
+
+    this.refresh = false;
+
+    this.setViewScript(sc.views.scripts.search.index);
+};

@@ -51,6 +51,13 @@ sc.components.CoursesCard.ListController.prototype.bindEvents = function() {
 
     goog.events.listen(this.cardModel, sc.components.CoursesCard.Model.EventType.STATE_UPDATED, this.onStateUpdated,
         false, this);
+
+    goog.events.listen(sc.Registry.get('eventManager'), sc.Application.EventType.ON_NAVIGATE, function(e) {
+        if (e.url.toString().indexOf('search') == -1)
+            this.cardModel.setState(State.OFF, true);
+        else
+            this.cardModel.setState(State.TAB, true);
+    }, false, this);
 };
 
 

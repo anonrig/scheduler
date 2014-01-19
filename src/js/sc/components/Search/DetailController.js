@@ -26,12 +26,7 @@ sc.components.Search.DetailController.prototype.viewClass = sc.components.Search
 
 
 sc.components.Search.DetailController.prototype.bindEvents = function() {
-    var that = this,
-        domMappings = this.view.template.domMappings,
-        outsideTapListener,
-        listParent = this.getDOM();
-
-    goog.events.listen(listParent, tart.events.EventType.SWIPE_RIGHT, function(e) {
+    goog.events.listen(this.getDOM(), tart.events.EventType.SWIPE_RIGHT, function() {
          sc.router.redirectToRoute('search');
     }, false, this);
 };
@@ -47,6 +42,6 @@ sc.components.Search.DetailController.prototype.detail = function(id) {
             sc.router.redirectToRoute('search');
         },
         type: 'Search',
-        order: 1
+        order: 2
     });
 };

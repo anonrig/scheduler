@@ -14,6 +14,7 @@
 
 .searchList {
     padding-top: 88px;
+    -webkit-transform: translate3d(100%, 0, 0);
 }
 
 .device .searchList.view {
@@ -114,7 +115,7 @@
 }
 
 .detail.view {
-    -webkit-transform: translate3d(100%,0, 0);
+    -webkit-transform: translate3d(200%,0, 0);
 }
 
 .detail.view {
@@ -196,4 +197,15 @@
     from { -webkit-transform: translate3d(0,0,0); }
     30% { -webkit-transform: translate3d(-120px,0,0) rotate(-2deg); -webkit-animation-timing-function: ease-in; }
     60% { -webkit-transform: translate3d(0,0,0); }
+}
+
+.schedule.view {
+    padding: 0 20px 20px;
+    height: auto;
+    top: 88px;
+    bottom: 0;
+}
+
+.device .schedule.view {
+    top: 128px;
 }
