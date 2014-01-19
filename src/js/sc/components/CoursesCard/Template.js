@@ -55,8 +55,10 @@ sc.components.CoursesCard.Template.prototype.item = function(item) {
 
     goog.array.removeDuplicates(teachers);
 
+    var section = item['section'] == '0' ? '' : ' ' + item['section'];
+
     return '<div class="item" data-courseId="' + item['id'] + '">' +
-            '<h3><strong>' + item['name'] + item['section'] + '</strong> ' + item['title'] + '</h3>' +
+            '<h3><strong>' + item['name'] + section + '</strong> ' + item['title'] + '</h3>' +
             '<h4>' + teachers.join(', ') + '</h4>' +
             '<p>' + times + '</p>' +
         '</div>';

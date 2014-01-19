@@ -29,7 +29,6 @@
     padding: 20px 0 20px 20px;
     background-color: rgba(0, 0, 0, 0.3);
     border-top: 1px solid rgba(255, 255, 255, 0.2);
-    -webkit-transition: 0.3s background-color;
     -webkit-transform-origin: 0% 100%;
     -webkit-transform: translate3d(0,0,0);
 }
@@ -259,6 +258,7 @@
 .schedule.view .lecture {
     box-shadow: 0 1px hsla(0, 100%, 100%, 0.3);
     border-top: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.03);
     padding: 5px 0;
     position: absolute;
     width: 100%;

@@ -38,6 +38,7 @@ sc.components.Search.RootController.prototype.list = function() {
     }, 1);
 };
 
+
 sc.components.Search.RootController.prototype.detail = function(id) {
     var that = this;
 
