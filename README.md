@@ -14,7 +14,8 @@ Ruby >= 2.0
 
 Compiling
 ---------
-Run
-    grunt production device prod && phonegap build ios
+For iOS: Run grunt production device prod && phonegap build ios
+
+For Web: Run grunt dev web prod
 
 This will make a proper `www` folder out of the `src` folder and then prepare the iOS project.
