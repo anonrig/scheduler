@@ -29,16 +29,25 @@ sc.components.Search.RootController.prototype.viewClass = sc.components.Search.R
 
 sc.components.Search.RootController.prototype.list = function() {
     this.listController.list();
+
+    if (window.location.toString().indexOf('refresh') != -1) this.view.activeView = null;
+
     this.view.setActiveView(this.listController.view);
 };
 
 sc.components.Search.RootController.prototype.detail = function(id) {
     this.detailController.detail(id);
+
+    if (window.location.toString().indexOf('refresh') != -1) this.view.activeView = null;
+
     this.view.setActiveView(this.detailController.view);
 };
 
 
-sc.components.Search.RootController.prototype.schedule = function(id) {
+sc.components.Search.RootController.prototype.schedule = function() {
     this.scheduleController.schedule();
+
+    if (window.location.toString().indexOf('refresh') != -1) this.view.activeView = null;
+
     this.view.setActiveView(this.scheduleController.view);
 };

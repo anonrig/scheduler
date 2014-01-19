@@ -44,6 +44,16 @@ sc.components.NavigationBar.prototype.setConfig = function(config) {
 /**
  * @override
  */
+sc.components.NavigationBar.prototype.reload = function(config) {
+    if (window.location.toString().indexOf('refresh') != -1) return this.go(config);
+
+    goog.base(this, 'reload', config);
+};
+
+
+/**
+ * @override
+ */
 sc.components.NavigationBar.prototype.bindModelEvents = function() {
     goog.base(this, 'bindModelEvents');
     goog.events.listen(sc.Registry.get('eventManager'), sc.Application.EventType.ON_NAVIGATE, function() {

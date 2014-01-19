@@ -103,6 +103,20 @@ sc.Application.prototype.initRouting = function() {
         controller: sc.controllers.SearchController,
         action: sc.controllers.SearchController.scheduleAction
     }));
+
+    router.addRoute(new tart.mvc.uri.Route({
+        name: 'search',
+        format: 'search/:refresh',
+        controller: sc.controllers.SearchController,
+        action: sc.controllers.SearchController.indexAction
+    }));
+
+    router.addRoute(new tart.mvc.uri.Route({
+        name: 'schedule',
+        format: 'schedule/:refresh',
+        controller: sc.controllers.SearchController,
+        action: sc.controllers.SearchController.scheduleAction
+    }));
 };
 
 
