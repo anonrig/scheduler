@@ -34,5 +34,10 @@ sc.components.Search.ScheduleView.prototype.render = function() {
 
 
 sc.components.Search.ScheduleView.prototype.schedule = function() {
-    this.getDOM().innerHTML = this.template.schedule();
+    var that = this,
+        courses = sc.models.CourseModel.getInstance().getCoursesByDays();
+
+    setTimeout(function() {
+        that.getDOM().innerHTML = that.template.schedule(courses);
+    }, 500);
 };

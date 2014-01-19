@@ -144,6 +144,61 @@ sc.components.Search.Template.prototype.scheduleBase = function() {
 };
 
 
-sc.components.Search.Template.prototype.schedule = function() {
-    return '';
+sc.components.Search.Template.prototype.schedule = function(coursesByDays) {
+    var hasSaturday = !!coursesByDays[5],
+        saturdayClass = hasSaturday ? 'hasSaturday' : '';
+
+    return '<div class="titles ' + saturdayClass + '">' +
+            coursesByDays.map(this.scheduleDayName, this).join('') + '</div>' +
+        '<div class="days ' + saturdayClass + '">' +
+            coursesByDays.map(this.scheduleDay.bind(this, hasSaturday), this).join('') +
+        '</div>';
+};
+
+
+sc.components.Search.Template.prototype.scheduleDayName = function(day, index) {
+    var dayNames = 'MTWTFSS'.split('');
+
+    return '<h2>' + dayNames[index] + '</h2>';
+};
+
+
+sc.components.Search.Template.prototype.scheduleDay = function(isSlim, day) {
+    return '<div class="day">' +
+            day.map(this.scheduleLecture.bind(this, isSlim), this).join('') +
+        '</div>';
+};
+
+
+sc.components.Search.Template.prototype.scheduleLecture = function(isSlim, lecture) {
+    var time = this.formatDate_(lecture.lecture['startDate']) + ' - ' + this.formatDate_(lecture.lecture['endDate']),
+        courseDuration = Math.floor((lecture.lecture['endDate'] - lecture.lecture['startDate']) / 50 / 60 / 1000),
+        height = courseDuration * 90;
+
+        var dayBeginning = new Date(lecture.lecture['startDate']);
+        dayBeginning.setUTCHours(8);
+        dayBeginning.setUTCMinutes(40);
+        var top = Math.floor((lecture.lecture['startDate'] - dayBeginning) / 50 / 60 / 1000) * 90;
+
+    return '<div style="height: ' + height + 'px; top: ' + top + 'px" class="lecture">' +
+            this.scheduleLectureName(lecture, isSlim) +
+            '<div class="time">' + time + '</div>' +
+            '<div class="time">' + lecture.lecture['location'] + '</div>' +
+        '</div>';
+};
+
+
+sc.components.Search.Template.prototype.scheduleLectureName = function(lecture, isSlim) {
+    var section = lecture.course['section'] == '0' ? '' : ' ' + lecture.course['section'],
+        name = lecture.course['name'] + section,
+        fontSize = 30,
+        maxLength = isSlim ? 95 : 115;
+
+    var styler = function(el) {
+        el.style.fontSize = fontSize + 'px';
+    };
+
+    while (sc.util.getWordWidth(name, styler) >= maxLength) fontSize = fontSize - 2;
+
+    return '<h2 style="font-size:' + fontSize + 'px">' + name + '</h2>';
 };

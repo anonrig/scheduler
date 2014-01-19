@@ -120,3 +120,33 @@ sc.models.CourseModel.prototype.getTotalHours = function() {
         }, 0);
     }, 0);
 };
+
+
+sc.models.CourseModel.prototype.getDaysWithCourses = function() {
+    var days = {};
+    this.selectedCourses.forEach(function(course) {
+        course['informationList'].forEach(function(lecture) {
+            days[new Date(lecture['startDate']).getDay()] = true;
+        });
+    });
+
+    return days;
+};
+
+
+sc.models.CourseModel.prototype.getCoursesByDays = function() {
+    var days = [[], [], [], [], []];
+    this.selectedCourses.forEach(function(course) {
+        course['informationList'].forEach(function(lecture) {
+            var dayNumber = new Date(lecture['startDate']).getDay() - 1,
+                day = days[dayNumber] = days[dayNumber] || [];
+
+            day.push({
+                course: course,
+                lecture: lecture
+            });
+        });
+    });
+
+    return days;
+};

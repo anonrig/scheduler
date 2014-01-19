@@ -206,7 +206,7 @@
 }
 
 .schedule.view {
-    padding: 0 20px 20px;
+    padding: 0 20px;
     height: auto;
     top: 88px;
     bottom: 0;
@@ -214,4 +214,60 @@
 
 .device .schedule.view {
     top: 128px;
+}
+
+.schedule.view .titles h2 {
+    font-weight: 400;
+    float: left;
+    text-align: center;
+    width: 20%;
+}
+
+.schedule.view .days {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    right: 20px;
+    bottom: 0;
+    overflow: scroll;
+    padding-bottom: 20px;
+}
+
+.schedule.view .titles {
+    height: 66px;
+    border-bottom: 1px solid rgb(55,75,95);
+    z-index: 2;
+}
+
+.schedule.view .day {
+    float: left;
+    width: 20%;
+    text-align: center;
+    min-height: 101%;
+}
+
+.schedule.view .hasSaturday .day,
+.schedule.view .titles.hasSaturday h2 {
+    width: 16.66%;
+}
+
+.schedule.view .day h2 {
+    line-height: 35px;
+    font-weight: 400;
+}
+
+.schedule.view .lecture {
+    box-shadow: 0 1px hsla(0, 100%, 100%, 0.3);
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding: 5px 0;
+    position: absolute;
+    width: 100%;
+    font-weight: 400;
+    z-index: 1;
+}
+
+.schedule.view .time {
+    font-size: 16px;
+    opacity: 0.7;
+    font-weight: 700;
 }

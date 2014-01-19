@@ -33,3 +33,21 @@ goog.provide('sc.util');
         return new RegExp('(^' + pattern + '|\\W' + pattern + ')', 'ig');
     };
 })();
+
+
+(function() {
+    var sizer = tart.dom.createElement('<span class="sizer"></span>');
+    document.body.appendChild(sizer);
+
+    /**
+     * Calculate a string's length in document.
+     *
+     * @param {!string} word String to calculate width for.
+     * @param {Function} styler Styler.
+     */
+    sc.util.getWordWidth = function(word, styler) {
+        styler(sizer);
+        sizer.innerHTML = word;
+        return sizer.clientWidth + 1;
+    };
+})();
