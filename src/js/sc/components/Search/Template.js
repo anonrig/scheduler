@@ -45,17 +45,18 @@ sc.components.Search.Template.prototype.listBase = function() {
 
 
 sc.components.Search.Template.prototype.empty = function() {
-    return '<div class="empty">' +
-            '<div class="scrollFixer"></div>' +
+    return '<div class="scrollFixer"></div>' +
+            '<div class="empty">' +
             '<p>Search for a course by its ID, code, name or instructor.</p>' +
             '<p>You can then add the course to your schedule.</p>' +
+            '<p>Once you have a few courses, swipe right to see your generated schedule.</p>' +
         '</div>';
 };
 
 
 sc.components.Search.Template.prototype.noResults = function() {
-    return '<div class="empty">' +
-            '<div class="scrollFixer"></div>' +
+    return '<div class="scrollFixer"></div>' +
+            '<div class="empty">' +
             'No results found.<br/>Try another search term.' +
         '</div>';
 };
