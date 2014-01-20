@@ -4,8 +4,8 @@ menu {
     right: 0px;
     z-index: 0;
     color: white;
-    width: 480px;
-    -webkit-transform: translate3d(500px, 0, 0) rotateY(-50deg);
+    width: 380px;
+    -webkit-transform: translate3d(380px, 0, 0) rotateY(-50deg);
     -webkit-transform-origin: 0% 0%;
     -webkit-transition: 0.35s all;
 }
@@ -46,7 +46,6 @@ menu.sidebarOn {
 menu .button {
     display: block;
     background: rgba(255,255,255,.05);
-    margin-bottom: 1px;
     height: 100px;
     line-height: 100px;
     box-sizing: border-box;
@@ -57,16 +56,19 @@ menu .button {
     color: rgba(255,255,255,1);
     font-weight: 200;
     border-top: 1px solid rgba(255,255,255,0.3);
-    text-shadow: 0 0 2px rgba(0,0,0,.25);
     letter-spacing: 2px;
 }
 
-menu .button.search {
+menu .button.about {
     border-bottom: 1px solid rgba(255,255,255,0.3);
 }
 
+menu .button.search {
+    border-bottom: none;
+}
+
 menu.sidebar { height: 100%; border-left: 1px solid rgba(255,255,255,.04); }
-menu .button.search, .button.schedule { padding-left: 10px; top: 148px; }
+menu .button.about, menu .button.search, .button.schedule { padding-left: 10px; top: 148px; }
 menu .button.about, menu .button.feedback { color: #cececf; }
 menu .button span {
     background: white;
