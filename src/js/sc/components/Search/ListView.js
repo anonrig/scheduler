@@ -36,9 +36,8 @@ sc.components.Search.ListView.prototype.render = function() {
 sc.components.Search.ListView.prototype.list = function(items) {
     var markup = this.template.empty();
 
-    if (items) {
-        markup = items.map(this.template.item, this.template).join('');
-    }
+    if (items)
+        markup = items.length ? this.template.list(items) : this.template.noResults();
 
     this.get(this.template.domMappings.LIST)[0].innerHTML = markup;
 };

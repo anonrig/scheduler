@@ -46,8 +46,17 @@ sc.components.Search.Template.prototype.listBase = function() {
 
 sc.components.Search.Template.prototype.empty = function() {
     return '<div class="empty">' +
+            '<div class="scrollFixer"></div>' +
             '<p>Search for a course by its ID, code, name or instructor.</p>' +
             '<p>You can then add the course to your schedule.</p>' +
+        '</div>';
+};
+
+
+sc.components.Search.Template.prototype.noResults = function() {
+    return '<div class="empty">' +
+            '<div class="scrollFixer"></div>' +
+            'No results found.<br/>Try another search term.' +
         '</div>';
 };
 
@@ -60,6 +69,11 @@ sc.components.Search.Template.prototype.search = function() {
             '</form>' +
             '<div class="clear" style="display: none"><i class="icon-close"></i></div>' +
         '</div>';
+};
+
+
+sc.components.Search.Template.prototype.list = function(items) {
+    return '<div class="scrollFixer"></div>' + items.map(this.item, this).join('');
 };
 
 
