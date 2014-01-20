@@ -30,6 +30,6 @@ sc.components.CoursesCard.Widget.prototype.templates_placeholder = function () {
     sc.models.CourseModel.getInstance();
     var state = sc.components.CoursesCard.Model.getInstance().state;
 
-    return '<div class="coursesCard widgetPlaceholder ' + state + '" id="' + this.getId() + '"></div>';
+    return '<div class="coursesCard widgetPlaceholder off" id="' + this.getId() + '"></div>';
 };
 
