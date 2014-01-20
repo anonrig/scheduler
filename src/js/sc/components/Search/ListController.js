@@ -168,6 +168,6 @@ sc.components.Search.ListController.prototype.onCourseTap = function(element, co
             this.courseModel.remove(chosenCourse);
             this.view.enableItemSelection(element, false);
         }
-        else alert(e.message);
+        else navigator.notification.alert(e.message, null, 'Scheduler');
     }
 };
