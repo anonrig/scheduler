@@ -41,6 +41,9 @@
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
 		FADE0B04D0314FFC926C2639 /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = DF64F59B59F24C3094D4D1EB /* CDVSplashScreen.m */; };
 		5E55EB2C880C41F38022C48D /* CDVKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 6361A87F152A4343B374735C /* CDVKeyboard.m */; };
+		A0548FAF0154451DAE606D53 /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 01072CB57A604005B3BE781F /* CDVNotification.m */; };
+		9AF8D1605C314B319A42987D /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7C6D9DB3D427419791AC9C46 /* CDVNotification.bundle */; };
+		F4DD62787432432E81AD6234 /* AudioToolbox.framework in Resources */ = {isa = PBXBuildFile; fileRef = 01F49A28EF66468C8901C7E7 /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +109,10 @@
 		38B91A0DD3464DB6913E2C25 /* CDVSplashScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVSplashScreen.h"; path = "org.apache.cordova.splashscreen/CDVSplashScreen.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		6361A87F152A4343B374735C /* CDVKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVKeyboard.m"; path = "org.apache.cordova.keyboard/CDVKeyboard.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		F1DB67C1D0D3499A8833222C /* CDVKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVKeyboard.h"; path = "org.apache.cordova.keyboard/CDVKeyboard.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		01072CB57A604005B3BE781F /* CDVNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVNotification.m"; path = "org.apache.cordova.dialogs/CDVNotification.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		7F3967E889FF4BCEA99C05B0 /* CDVNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVNotification.h"; path = "org.apache.cordova.dialogs/CDVNotification.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		7C6D9DB3D427419791AC9C46 /* CDVNotification.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "CDVNotification.bundle"; path = "CDVNotification.bundle"; sourceTree = "<group>"; };
+		01F49A28EF66468C8901C7E7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "AudioToolbox.framework"; path = "System/Library/Frameworks/AudioToolbox.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +125,7 @@
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
 				5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */,
+				F4DD62787432432E81AD6234 /* AudioToolbox.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +205,7 @@
 				308D052D1370CCF300D202BF /* icons */,
 				308D05311370CCF300D202BF /* splash */,
 				8D1107310486CEB800E47090 /* Scheduler-Info.plist */,
+				7C6D9DB3D427419791AC9C46 /* CDVNotification.bundle */,
 			);
 			name = Resources;
 			path = "Scheduler/Resources";
@@ -209,6 +218,7 @@
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
+				01F49A28EF66468C8901C7E7 /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -228,6 +238,8 @@
 				38B91A0DD3464DB6913E2C25 /* CDVSplashScreen.h */,
 				6361A87F152A4343B374735C /* CDVKeyboard.m */,
 				F1DB67C1D0D3499A8833222C /* CDVKeyboard.h */,
+				01072CB57A604005B3BE781F /* CDVNotification.m */,
+				7F3967E889FF4BCEA99C05B0 /* CDVNotification.h */,
 			);
 			name = Plugins;
 			path = "Scheduler/Plugins";
@@ -383,6 +395,7 @@
 				7E7966E11810823500FA85AD /* icon-50@2x.png in Resources */,
 				7E7966E51810823500FA85AD /* icon-76@2x.png in Resources */,
 				30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */,
+				9AF8D1605C314B319A42987D /* CDVNotification.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +428,7 @@
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				FADE0B04D0314FFC926C2639 /* CDVSplashScreen.m in Sources */,
 				5E55EB2C880C41F38022C48D /* CDVKeyboard.m in Sources */,
+				A0548FAF0154451DAE606D53 /* CDVNotification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
