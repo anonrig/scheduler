@@ -20,8 +20,10 @@ sc.Application = function() {
 
     this.localStorage = new tart.storage.Storage();
     console.log(this.localStorage.get('seenCarousel'));
+
     if (this.localStorage.get('seenCarousel')){
-        if (this.localStorage.get('selectedCourses')){
+        var selectedCourses = this.localStorage.get('selectedCourses');
+        if (selectedCourses && selectedCourses.length > 0){
             this.defaultRoute = new tart.mvc.uri.Route({
                 name: 'default',
                 format: 'schedule',
