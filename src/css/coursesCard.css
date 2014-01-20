@@ -6,6 +6,7 @@
 
     /* this was only activated on full size previously, but I took it here for performance considerations on iPhone 4 */
     box-shadow: 0 26px 74px 20px hsla(200, 100%, 19%,1);
+    z-index: 9999;
 }
 
 .coursesCard .bg {

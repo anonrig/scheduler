@@ -103,6 +103,7 @@ h4 {
     bottom: 0;
     overflow: hidden;
     width: 100%;
+    z-index: 1;
 }
 
 #blockerOverlay { width: 100%; height: 100%; position: absolute; z-index: -5;}
