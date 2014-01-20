@@ -1,18 +1,15 @@
 .coursesCard {
     -webkit-transform: translate3d(0, 100%, 0);
-    -webkit-transition: 0.4s all cubic-bezier(.42,1.14,.56,1.06);
-    width: 590px;
-    margin: 0 auto;
-    border-radius: 10px;
+    -webkit-transition: 0.45s all cubic-bezier(.42,1.14,.56,1.06);
+    width: 640px;
     /*box-shadow: 0 0px 84px 0px hsla(200, 60%, 30%,1);*/
 
-    /* this was only activated on full size previously, but I took it here for performance consideations on iPhone 4 */
-    box-shadow: 0 20px 84px 0px hsla(190, 70%, 20%,1);;
+    /* this was only activated on full size previously, but I took it here for performance considerations on iPhone 4 */
+    box-shadow: 0 26px 74px 20px hsla(200, 100%, 19%,1);
 }
 
 .coursesCard .bg {
-    background: rgba(145,225,195,.53);
-    opacity: 1;
+    background: rgba(155,255,225,.4);
     -webkit-transition: 0.5s all cubic-bezier(.42,1.14,.56,1.06);
     top: 0;
     position: absolute;
@@ -20,12 +17,11 @@
     left: 0;
     right: 0;
     z-index: 1;
-    border-radius: 10px;
 }
 
 .coursesCard .bg2 {
     background: url('../img/bg2.png') bottom;
-    opacity: .9;
+    opacity: .7;
     -webkit-transition: 0.5s all cubic-bezier(.42,1.14,.56,1.06);
     top: 0;
     position: absolute;
@@ -33,7 +29,6 @@
     left: 0;
     right: 0;
     z-index: 0;
-    border-radius: 10px;
 }
 
 .coursesCard.on .bg {
@@ -41,7 +36,7 @@
 }
 
 .coursesCard.on .bg2 {
-    opacity: 1;
+    opacity: 0.96;
 }
 
 .coursesCard.tab {
@@ -52,18 +47,28 @@
     -webkit-transform: translate3d(0, 0%, 0);
 }
 
+@-webkit-keyframes hop {
+    from { -webkit-transform: translate3d(0,calc(100% - 250px),0); }
+    18% { -webkit-transform: translate3d(0,calc(100% - 330px),0); -webkit-animation-timing-function: ease-in; }
+    60% { -webkit-transform: translate3d(0,calc(100% - 230px),0); }
+    72% { -webkit-transform: translate3d(0,calc(100% - 260px),0); -webkit-animation-timing-function: ease-in-out; }
+    92% { -webkit-transform: translate3d(0,calc(100% - 250px),0); }
+}
+
 .coursesCard .list {
     padding: 0 20px 20px;
     z-index: 2;
 }
 
 .coursesCard .count {
-    padding: 25px 0 25px 25px;
-    font-size: 60px;
-    font-weight: 100;
+    padding: 23px 25px 25px 25px;
+    font-size: 56px;
+    font-weight: 200;
     margin-bottom: 20px;
-    z-index: 2;
+    z-index: 3;
     -webkit-transform: translate3d(0,0,0);
+    text-align: center;
+    border-bottom: 1px solid rgb(85,105,145);
 }
 
 .courses.root.view {
@@ -85,8 +90,9 @@
 .coursesCard .courses.list {
     padding: 0;
     overflow: scroll;
-    top: 120px;
+    top: 117px;
     bottom: 140px;
+    width: 100%;
     position: absolute;
 }
 

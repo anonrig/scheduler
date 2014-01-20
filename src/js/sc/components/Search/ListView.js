@@ -61,4 +61,4 @@ sc.components.Search.ListView.prototype.enableItemSelection = function(element, 
     element.addEventListener('webkitAnimationEnd', function(){
         element.style.webkitAnimation = '';
     }, false);
-}
+};

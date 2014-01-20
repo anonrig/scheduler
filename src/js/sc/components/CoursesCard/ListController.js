@@ -64,6 +64,17 @@ sc.components.CoursesCard.ListController.prototype.bindEvents = function() {
 
 sc.components.CoursesCard.ListController.prototype.list = function() {
     this.view.list(this.courseModel.selectedCourses, this.courseModel.getTotalHours());
+
+    if (this.courseModel.selectedCourses.length > 1)
+        setTimeout(function() {
+            var element = goog.dom.query('.coursesCard')[0];
+
+            element.style.webkitAnimation = 'hop .5s ease-out';
+
+            element.addEventListener('webkitAnimationEnd', function(){
+                element.style.webkitAnimation = '';
+            }, false);
+        }, 10);
 };
 
 

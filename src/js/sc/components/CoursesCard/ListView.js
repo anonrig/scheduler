@@ -36,11 +36,7 @@ sc.components.CoursesCard.ListView.prototype.render = function() {
 
 
 sc.components.CoursesCard.ListView.prototype.list = function(items, hours) {
-    var markup = '';
-
-    if (items) {
-        markup = items.map(this.template.item, this.template).join('');
-    }
+    var markup = items ? this.template.list(items) : '';
 
     var stats = items.length + ' courses, ' + hours + ' hours.';
 

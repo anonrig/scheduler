@@ -125,6 +125,15 @@ h4 {
 .scrollFixer {
     position: absolute;
     z-index: -1;
-    height: calc(100% + 1px);
+    height: 100%;
+    padding-bottom: 1px;
     width: 50%;
+    box-sizing: content-box;
+}
+
+.container {
+    min-height: 100%;
+    padding-bottom: 1px;
+    box-sizing: content-box;
+
 }

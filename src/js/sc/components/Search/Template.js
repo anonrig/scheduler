@@ -113,12 +113,14 @@ sc.components.Search.Template.prototype.detail = function(item) {
     var summary = item['summary'] ? '<h2>Summary</h2><p>' + item['summary'] + '</p>' : '';
     var levels = item['levels'] ? '<h2>Levels</h2><p>' + item['levels'] + '</p>' : '';
 
-    return '<h1>' + item['name'] + section + '</h1>' +
+    return '<div class="container">' +
+            '<h1>' + item['name'] + section + '</h1>' +
             '<h2>' + item['title'] + '</h2>' +
             '<div class="id">Course ID: ' + item['id'] + '</div>' +
             '<ol>' + times + '</ol>' +
             summary +
-            levels;
+            levels +
+        '</div>';
 };
 
 
@@ -177,7 +179,6 @@ sc.components.Search.Template.prototype.scheduleBase = function() {
                 coursesByDays.map(this.scheduleDayName, this).join('') +
             '</div>' +
             '<div class="days ' + saturdayClass + '">' +
-                '<div class="scrollFixer"></div>' +
                 days +
             '</div>';
     };

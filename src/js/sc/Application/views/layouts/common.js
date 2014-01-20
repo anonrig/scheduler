@@ -13,7 +13,9 @@ sc.views.layouts.common = function() {
 
     this.onRender = function() {
         goog.dom.classes.remove(document.body, 'loading');
-        navigator.splashscreen && navigator.splashscreen.hide();
+        setTimeout(function() {
+            navigator.splashscreen && navigator.splashscreen.hide();
+        }, 500);
 
         sc.views.helpers.touchEventsHelper();
         sc.views.helpers.sidebarHelper();

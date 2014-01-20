@@ -83,11 +83,13 @@ sc.components.Search.ListController.prototype.bindEvents = function() {
         if (this.searchTimer)
             clearTimeout(this.searchTimer);
 
-        if (input.value && input.value.length > 2) {
-            this.searchTimer = setTimeout(function() {
-                that.view.list(search(input.value));
-            }, 10);
+        if (input.value) {
             this.view.enableClearButton(true);
+            if (input.value.length > 2) {
+                this.searchTimer = setTimeout(function() {
+                    that.view.list(search(input.value));
+                }, 10);
+            }
         }
         else {
             that.view.list();

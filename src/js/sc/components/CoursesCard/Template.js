@@ -39,7 +39,16 @@ sc.components.CoursesCard.Template.prototype.listBase = function(items, hours) {
             '<div class="bg"></div>' +
             '<div class="bg2"></div>' +
             '<div class="count">' + items.length + ' courses, ' + hours + ' hours.' + '</div>' +
-            '<div class="list courses">' + markup + '</div>' +
+            '<div class="list courses">' +
+                this.list(items) +
+            '</div>' +
+        '</div>';
+};
+
+
+sc.components.CoursesCard.Template.prototype.list = function(items) {
+    return '<div class="container">' +
+            items.map(this.item, this).join('') +
         '</div>';
 };
 
