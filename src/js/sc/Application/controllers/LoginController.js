@@ -21,6 +21,7 @@ goog.inherits(sc.controllers.LoginController, tart.mvc.Controller);
  */
 sc.controllers.LoginController.indexAction = function() {
 	this.view.widget = this.controller.widget;
+    this.view.widget.login();
     this.refresh = false;
     this.setViewScript(sc.views.scripts.login.index);
 };

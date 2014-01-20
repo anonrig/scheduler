@@ -1,0 +1,66 @@
+.loginCarousel {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.loginCarousel .items {
+    width: 500%;
+    margin-top: 30%;
+    -webkit-transition: .6s all;
+    text-align: center;
+}
+
+img.logo {
+    top: 0px !important;
+}
+
+.items .item {
+    margin-left: auto;
+    margin-right: auto;
+}
+.loginCarousel .item {
+    position: relative!important;
+    display: inline-block;
+    color: #f0f0f0;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    top: -40px;
+
+}
+.loginCarousel .items .itemInfo {
+    margin: 0 auto;
+    text-align: center;
+    width: 75%;
+    font-size: 25px;
+    font-weight: 300;
+}
+.loginCarousel .items .itemTitle {
+    margin-bottom: 10px;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.pager {
+    text-align: center;
+    top: 0px;
+}
+
+.pager span {
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    border: 1px solid #ffffff;
+    background: none;
+    border-radius: 50%;
+    margin-right: 13px;
+    margin-bottom: 10px;
+    left: 10px;
+}
+
+.pager span.selected {
+    background: #ffffff;
+}

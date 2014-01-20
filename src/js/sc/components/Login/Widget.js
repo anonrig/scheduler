@@ -18,3 +18,7 @@ goog.inherits(sc.components.Login.Widget, tart.components.mobile.Widget);
 
 /** @type {function(new:sc.components.Login.Controller)} */
 sc.components.Login.Widget.prototype.controllerClass = sc.components.Login.Controller;
+
+sc.components.Login.Widget.prototype.login = function(id) {
+    this.controller.login();
+};

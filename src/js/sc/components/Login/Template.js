@@ -23,22 +23,30 @@ goog.inherits(sc.components.Login.Template, tart.components.mobile.Template);
 sc.components.Login.Template.prototype.base = function(items) {
     return '<div class="loginCarousel">' +
             '<div class="items">' +
-                '<div class="item view"><img class="logo" src="img/logo.png" height="169.5" /></div>' +
-                '<div class="item view"><img src="img/slide1.png" height="260"/>' +
-                    '<div class="itemTitle">Geceyi Keşfet.</div>' +
+                '<div class="item view"><img src="img/search.png" height="60%"/>' +
+                    '<div class="itemTitle">Search through courses</div>' +
                     '<div class="itemInfo">Nerede ne çalıyor, hangi müzik senin moduna uyuyor?</div>' +
                 '</div>' +
-                '<div class="item view"><img src="img/slide2.png" height="254.5"/>' +
-                    '<div class="itemTitle">Müziğe Hükmet.</div>' +
+                '<div class="item view"><img src="img/search2.png" height="60%"/>' +
+                    '<div class="itemTitle">Advance Search</div>' +
                     '<div class="itemInfo">İstediğin yerde, istediğin şarkıları dinle, müziğe yön ver!</div>' +
                 '</div>' +
-                '<div class="item view"><img src="img/slide3.png" height="260.5"/>' +
-                    '<div class="itemTitle">Sahne Işıkları üzerinde.</div>' +
+                '<div class="item view"><img src="img/detailpage.png" height="60%"/>' +
+                    '<div class="itemTitle">View detailed descriptions.</div>' +
                     '<div class="itemInfo">İstediğin şarkıları tüm dünyayla paylaş!</div>' +
+                '</div>' +
+                '<div class="item view"><img src="img/coursecard.png" height="60%"/>' +
+                '<div class="itemTitle">Add each course to your card.</div>' +
+                '<div class="itemInfo">İstediğin şarkıları tüm dünyayla paylaş!</div>' +
+                '</div>' +
+                '<div class="item view"><img src="img/schedule.png" height="60%"/>' +
+                '<div class="itemTitle">Create your own schedule.</div>' +
+                '<div class="itemInfo">İstediğin şarkıları tüm dünyayla paylaş!</div>' +
                 '</div>' +
             '</div>' +
             '<div class="pager">' +
                 '<span class="selected"></span>' +
+                '<span></span>' +
                 '<span></span>' +
                 '<span></span>' +
                 '<span></span>' +

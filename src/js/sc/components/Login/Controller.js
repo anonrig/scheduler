@@ -40,7 +40,16 @@ sc.components.Login.Controller.prototype.bindEvents = function() {
 
 sc.components.Login.Controller.prototype.go = function(amount) {
     this.activeItem += amount;
-    this.activeItem = Math.min(3, Math.max(this.activeItem, 0));
+    this.activeItem = Math.min(4, Math.max(this.activeItem, 0));
 
     this.view.moveTo(this.activeItem);
+};
+
+sc.components.Login.Controller.prototype.login = function() {
+    console.log(1);
+    sc.Registry.get('navigationBar').setConfig({
+        title: 'Hello',
+        type: 'Search',
+        order: 3
+    });
 };
