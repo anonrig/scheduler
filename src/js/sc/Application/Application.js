@@ -19,7 +19,6 @@ sc.Application = function() {
     }, 1000);
 
     this.localStorage = new tart.storage.Storage();
-    console.log(this.localStorage.get('seenCarousel'));
 
     if (this.localStorage.get('seenCarousel')){
         var selectedCourses = this.localStorage.get('selectedCourses');

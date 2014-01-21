@@ -50,15 +50,15 @@ sc.models.CourseModel.prototype.includes = function(chosenCourse) {
 * @return {boolean}
 **/
 sc.models.CourseModel.prototype.collides = function(chosenCourse) {
-    return goog.array.some(this.selectedCourses, function(course) {
-        return goog.array.some(course['informationList'], function(eachLesson){
+    return goog.array.find(this.selectedCourses, function(course) {
+        return goog.array.find(course['informationList'], function(eachLesson){
             return this.collideHelper(eachLesson, chosenCourse);
         }, this);
     }, this);
 };
 
 sc.models.CourseModel.prototype.collideHelper = function(infoElement, course) {
-    return goog.array.some(course['informationList'], function(eachLecture) {
+    return goog.array.find(course['informationList'], function(eachLecture) {
         return (infoElement['startDate'] >= eachLecture['startDate'] && infoElement['startDate'] < eachLecture['endDate']) || (infoElement['endDate'] > eachLecture['startDate'] && infoElement['endDate'] <= eachLecture['endDate']);
     }, this);
 };
@@ -69,7 +69,8 @@ sc.models.CourseModel.prototype.collideHelper = function(infoElement, course) {
 **/
 sc.models.CourseModel.prototype.add = function(chosenCourse) {
     if (this.includes(chosenCourse)) throw new Error('Already in the list.');
-    if (this.collides(chosenCourse)) throw new Error(chosenCourse['title'] + ' has a collision with your current schedule.\nTry a different section.');
+    var course = this.collides(chosenCourse);
+    if (course) throw new Error(chosenCourse['name'] + '-' + chosenCourse['section'] + ' has a collision with ' + course['name'] + '-' + course['section'] + ' with id ' + course['id'] + '.\nTry a different section.');
 
     this.selectedCourses.push(chosenCourse);
     chosenCourse['selected'] = true;
