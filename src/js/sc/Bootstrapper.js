@@ -5,7 +5,7 @@ goog.require('sc.components.NavigationBar');
 goog.require('sc.util');
 goog.require('goog.dom');
 goog.require('tart.ui.ComponentManager');
-
+goog.require('tart.storage.Storage');
 
 
 /**
@@ -19,6 +19,22 @@ sc.Bootstrapper = function() {
     sc.setViewClass();
     sc.Registry.get('eventManager', goog.events.EventTarget);
     var navigationBar = sc.Registry.get('navigationBar', sc.components.NavigationBar);
+
+    var storage = new tart.storage.Storage();
+
+    if (!storage.get('db')) {
+        storage.set('db', db);
+        storage.set('version', dbVersion)
+    } else if (storage.get('version') != dbVersion) {
+        db = storage.get('db');
+    }
+
+    sc.xhr({
+       'url' : cfg.API_PATH + '/version.json',
+        'method': 'GET',
+        'storage': storage,
+        'purpose': 'version'
+    });
 
     sc.app = new sc.Application();
 };
@@ -154,3 +170,48 @@ sc.setViewClass = function() {
     document.getElementsByTagName('head')[0].appendChild(style);
 };
 
+
+sc.xhr = function(options){
+
+    var versionChange = function(result) {
+        if (result[0].version != options.storage.get('version')) {
+            options.storage.set('version', result[0]);
+
+            sc.xhr({
+                'url' : cfg.API_PATH + '/output.json',
+                'method': 'GET',
+                'storage': storage,
+                'purpose': 'update'
+            });
+        }
+    };
+
+    var req = new XMLHttpRequest();
+
+    options.headers = {
+        'Content-Type': 'text/html',
+        'Accept-Encoding': 'gzip',
+    };
+
+    req.open(options.method || 'GET', options.url, true);
+
+    // Set request headers if provided.
+    Object.keys(options.headers || {}).forEach(function (key) {
+        req.setRequestHeader(key, options.headers[key]);
+    });
+
+    req.onreadystatechange = function(e) {
+        if(req.readyState !== 4) {
+            return;
+        }
+
+        if([200,304].indexOf(req.status) == -1) {
+            navigator.notification.alert('Unable to update course database.\nPlease check your internet connection.', null, 'Scheduler')
+        } else {
+            if (options.purpose == "version") versionChange(JSON.parse(e.target.response));
+            else options.storage.set('db', result);
+        }
+    };
+    req.withCredentials = true;
+    req.send(JSON.stringify(options.data) || void 0);
+};

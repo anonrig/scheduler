@@ -1,3 +1,5 @@
+var dbVersion = 1;
+
 var db = [
   {
     "title": "Introduction to Financial Accounting and Reporting",
