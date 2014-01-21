@@ -24,6 +24,7 @@ sc.Bootstrapper = function() {
 
     if (!storage.get('db')) {
         storage.set('db', db);
+        console.log(db);
         storage.set('version', dbVersion)
     } else if (storage.get('version') != dbVersion) {
         db = storage.get('db');
@@ -32,8 +33,8 @@ sc.Bootstrapper = function() {
     sc.xhr({
        'url' : cfg.API_PATH + '/version.json',
         'method': 'GET',
-        'storage': storage,
-        'purpose': 'version'
+        'purpose': 'version',
+        storage: storage
     });
 
     sc.app = new sc.Application();
@@ -180,7 +181,7 @@ sc.xhr = function(options){
             sc.xhr({
                 'url' : cfg.API_PATH + '/output.json',
                 'method': 'GET',
-                'storage': storage,
+                storage: options.storage,
                 'purpose': 'update'
             });
         }
@@ -189,8 +190,7 @@ sc.xhr = function(options){
     var req = new XMLHttpRequest();
 
     options.headers = {
-        'Content-Type': 'text/html',
-        'Accept-Encoding': 'gzip',
+        'Content-Type': 'text/html'
     };
 
     req.open(options.method || 'GET', options.url, true);
@@ -209,7 +209,7 @@ sc.xhr = function(options){
             navigator.notification.alert('Unable to update course database.\nPlease check your internet connection.', null, 'Scheduler')
         } else {
             if (options.purpose == "version") versionChange(JSON.parse(e.target.response));
-            else options.storage.set('db', result);
+            else options.storage.set('db', JSON.parse(e.target.response));
         }
     };
     req.withCredentials = true;

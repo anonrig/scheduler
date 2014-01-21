@@ -59,7 +59,7 @@ sc.models.CourseModel.prototype.collides = function(chosenCourse) {
 
 sc.models.CourseModel.prototype.collideHelper = function(infoElement, course) {
     return goog.array.find(course['informationList'], function(eachLecture) {
-        return (infoElement['startDate'] >= eachLecture['startDate'] && infoElement['startDate'] < eachLecture['endDate']) || (infoElement['endDate'] > eachLecture['startDate'] && infoElement['endDate'] <= eachLecture['endDate']);
+        return (infoElement['startDate'] >= eachLecture['startDate'] && infoElement['startDate'] < eachLecture['endDate']) || (infoElement['startDate'] > eachLecture['startDate'] && infoElement['endDate'] <= eachLecture['endDate']);
     }, this);
 };
 

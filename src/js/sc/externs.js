@@ -27,3 +27,5 @@ var cfg = {
 };
 
 var db = {};
+
+var dbVersion;
