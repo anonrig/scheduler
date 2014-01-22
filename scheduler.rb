@@ -26,7 +26,7 @@ items = doc.css('table')
 
 courses = Array.new
 
-items.css('tr').each_slice(2) do |row_pair|
+items.css('tr').each_cons(2) do |row_pair|
 	lecture = Hash.new
 	isEmpty = row_pair[0].css('th.ddlabel').text == ""
 	
@@ -45,6 +45,7 @@ items.css('tr').each_slice(2) do |row_pair|
 			lecture['name'] = splitted[3]
 			lecture['section'] = splitted[4]
 		end
+		p lecture['name']
 		lecture['catalog'] = "http://suis.sabanciuniv.edu#{row_pair[1].css('td.dddefault a')[0]['href']}"
 		begin 
 			lectureDetail = Nokogiri(Net::HTTP.get(URI.parse(lecture['catalog'])))
