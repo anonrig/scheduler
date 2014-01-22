@@ -70,7 +70,7 @@ sc.components.CoursesCard.Template.prototype.item = function(item) {
 
     return '<div class="item" data-courseId="' + item['id'] + '">' +
             '<h3><strong>' + item['name'] + section + '</strong> ' + item['title'] + '</h3>' +
-            '<h4>' + teachers.join(', ') + '</h4>' +
+            '<h4>' + item['id'] + ' ' + teachers.join(', ') + '</h4>' +
             '<p>' + times + '</p>' +
         '</div>';
 };
