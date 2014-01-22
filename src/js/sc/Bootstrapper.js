@@ -33,7 +33,7 @@ sc.Bootstrapper = function() {
     sc.xhr({
        'url' : cfg.API_PATH + '/version.json',
         'method': 'GET',
-        'purpose': 'version',
+        purpose: "version",
         storage: storage
     });
 
@@ -176,13 +176,13 @@ sc.xhr = function(options){
 
     var versionChange = function(result) {
         if (result[0].version != options.storage.get('version')) {
-            options.storage.set('version', result[0]);
+            options.storage.set('version', result[0].version);
 
             sc.xhr({
                 'url' : cfg.API_PATH + '/output.json',
                 'method': 'GET',
                 storage: options.storage,
-                'purpose': 'update'
+                purpose: "update"
             });
         }
     };
@@ -206,10 +206,15 @@ sc.xhr = function(options){
         }
 
         if([200,304].indexOf(req.status) == -1) {
-            navigator.notification.alert('Unable to update course database.\nPlease check your internet connection.', null, 'Scheduler')
+            navigator.notification.alert('Unable to update course database.\nPlease check your internet connection.', null, 'Scheduler');
         } else {
-            if (options.purpose == "version") versionChange(JSON.parse(e.target.response));
-            else options.storage.set('db', JSON.parse(e.target.response));
+            if (options.purpose == "version") {
+                versionChange(JSON.parse(e.target.response));
+            } else {
+                options.storage.set('db', JSON.parse(e.target.response));
+                window.location.reload();
+                navigator.notification.alert('Course database is updated.', null, 'Scheduler');
+            }
         }
     };
     req.withCredentials = true;
