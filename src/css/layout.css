@@ -55,7 +55,7 @@ a {
 
 .header {
     height: 90px;
-    z-index: 1;
+    z-index: 9998;
     -webkit-transform: translate3d(0,0,0);
 }
 
