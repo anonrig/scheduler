@@ -18,7 +18,7 @@ menu.sidebarOn {
     position: absolute;
     right: 0;
     -webkit-transform: translate3d(3000%, 3000%, 0);
-    z-index: 9999;
+    z-index: 2;
     font-size: 48px;
     overflow: hidden;
     height: 88px;
@@ -40,7 +40,7 @@ menu.sidebarOn {
 }
 #menuHandle.on {
     -webkit-transform: translate3d(0%, 0%, 0);
-    z-index: 2;
+    z-index: 9999;
 }
 
 menu .button {
