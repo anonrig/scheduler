@@ -1,6 +1,7 @@
 goog.provide('sc.Application');
 goog.require('sc.controllers.SearchController');
 goog.require('sc.controllers.LoginController');
+goog.require('sc.controllers.AboutController');
 goog.require('sc.views.layouts.common');
 goog.require('tart.dom');
 goog.require('tart.mvc');
@@ -143,6 +144,13 @@ sc.Application.prototype.initRouting = function() {
         format: 'login',
         controller: sc.controllers.LoginController,
         action: sc.controllers.LoginController.indexAction
+    }));
+
+    router.addRoute(new tart.mvc.uri.Route({
+        name: 'about',
+        format: 'about',
+        controller: sc.controllers.AboutController,
+        action: sc.controllers.AboutController.indexAction
     }));
 };
 

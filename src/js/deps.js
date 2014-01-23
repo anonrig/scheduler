@@ -938,13 +938,15 @@ goog.addDependency('../../../../../library/tartJS/third_party/goog/third_party/c
 goog.addDependency('../../../../../library/tartJS/third_party/goog/third_party/closure/goog/silverlight/clipboardbutton.js', ['goog.silverlight.ClipboardButton', 'goog.silverlight.ClipboardButtonType', 'goog.silverlight.ClipboardEvent', 'goog.silverlight.CopyButton', 'goog.silverlight.PasteButton', 'goog.silverlight.PasteButtonEvent'], ['goog.asserts', 'goog.events.Event', 'goog.math.Size', 'goog.silverlight', 'goog.ui.Component']);
 goog.addDependency('../../../../../library/tartJS/third_party/goog/third_party/closure/goog/silverlight/silverlight.js', ['goog.silverlight'], []);
 goog.addDependency('../../../../../library/tartJS/third_party/goog/third_party/closure/goog/silverlight/supporteduseragent.js', ['goog.silverlight.supportedUserAgent'], []);
-goog.addDependency('../../../../../sc/Application/Application.js', ['sc.Application'], ['sc.controllers.LoginController', 'sc.controllers.SearchController', 'sc.views.layouts.common', 'tart.dom', 'tart.mvc', 'tart.mvc.MobileRenderer', 'tart.storage.Storage', 'tart.ui.DlgComponent']);
+goog.addDependency('../../../../../sc/Application/Application.js', ['sc.Application'], ['sc.controllers.AboutController', 'sc.controllers.LoginController', 'sc.controllers.SearchController', 'sc.views.layouts.common', 'tart.dom', 'tart.mvc', 'tart.mvc.MobileRenderer', 'tart.storage.Storage', 'tart.ui.DlgComponent']);
+goog.addDependency('../../../../../sc/Application/controllers/AboutController.js', ['sc.controllers.AboutController'], ['sc.views.scripts.about.index', 'tart.mvc.Controller']);
 goog.addDependency('../../../../../sc/Application/controllers/LoginController.js', ['sc.controllers.LoginController'], ['sc.views.scripts.login.index', 'tart.mvc.Controller']);
 goog.addDependency('../../../../../sc/Application/controllers/SearchController.js', ['sc.controllers.SearchController'], ['sc.views.scripts.search.index', 'tart.mvc.Controller']);
 goog.addDependency('../../../../../sc/Application/models/CourseModel.js', ['sc.models.CourseModel'], ['tart.components.mobile.Model', 'tart.storage.Storage']);
 goog.addDependency('../../../../../sc/Application/views/helper/sidebarHelper.js', ['sc.views.helpers.sidebarHelper'], []);
 goog.addDependency('../../../../../sc/Application/views/helper/touchEventsHelper.js', ['sc.views.helpers.touchEventsHelper'], ['goog.dom.query']);
 goog.addDependency('../../../../../sc/Application/views/layouts/common.js', ['sc.views.layouts.common'], ['sc.components.CoursesCard.Widget', 'sc.views.helpers.sidebarHelper', 'sc.views.helpers.touchEventsHelper']);
+goog.addDependency('../../../../../sc/Application/views/scripts/about/index.js', ['sc.views.scripts.about.index'], []);
 goog.addDependency('../../../../../sc/Application/views/scripts/login/index.js', ['sc.views.scripts.login.index'], ['sc.components.Login.Widget']);
 goog.addDependency('../../../../../sc/Application/views/scripts/search/index.js', ['sc.views.scripts.search.index'], ['sc.components.Search.Widget']);
 goog.addDependency('../../../../../sc/Bootstrapper.js', ['sc.Bootstrapper'], ['goog.dom', 'sc.Application', 'sc.Registry', 'sc.components.NavigationBar', 'sc.util', 'tart.storage.Storage', 'tart.ui.ComponentManager']);
