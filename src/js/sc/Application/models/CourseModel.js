@@ -57,9 +57,9 @@ sc.models.CourseModel.prototype.collides = function(chosenCourse) {
     }, this);
 };
 
-sc.models.CourseModel.prototype.collideHelper = function(infoElement, course) {
-    return goog.array.find(course['informationList'], function(eachLecture) {
-        return (infoElement['startDate'] >= eachLecture['startDate'] && infoElement['startDate'] < eachLecture['endDate']) || (infoElement['startDate'] > eachLecture['startDate'] && infoElement['endDate'] <= eachLecture['endDate']);
+sc.models.CourseModel.prototype.collideHelper = function(currentListElement, chosenCourse) {
+    return goog.array.find(chosenCourse['informationList'], function(chosenLecture) {
+        return ((currentListElement['startDate'] <= chosenLecture['endDate'] && currentListElement['endDate'] >= chosenLecture['endDate']  ) || (currentListElement['startDate'] <= chosenLecture['startDate'] && currentListElement['endDate'] >= chosenLecture['startDate']));
     }, this);
 };
 

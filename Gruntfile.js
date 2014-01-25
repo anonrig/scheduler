@@ -111,7 +111,6 @@ module.exports = function(grunt) {
                     'src/css/layout.css',
                     'src/css/menu.css',
                     'src/css/search.css',
-                    'src/css/about.css',
                     'src/css/coursesCard.css',
                     'src/css/navigationBar.css',
                     'src/css/tutorial.css',
@@ -140,7 +139,6 @@ module.exports = function(grunt) {
                         '<link rel="stylesheet" type="text/css" href="css/navigationBar.css" />' +
                         '<link rel="stylesheet" type="text/css" href="css/menu.css" />' +
                         '<link rel="stylesheet" type="text/css" href="css/search.css" />' +
-                        '<link rel="stylesheet" type="text/css" href="css/about.css" />' +
                         '<link rel="stylesheet" type="text/css" href="css/coursesCard.css" />' +
                         '<link rel="stylesheet" type="text/css" href="css/tutorial.css" />'
                 }]
