@@ -1,7 +1,7 @@
 .coursesCard {
     -webkit-transform: translate3d(0, 100%, 0);
     -webkit-transition: 0.45s all cubic-bezier(.42,1.14,.56,1.06);
-    width: 640px;
+    width: 100%;
     /*box-shadow: 0 0px 84px 0px hsla(200, 60%, 30%,1);*/
 
     /* this was only activated on full size previously, but I took it here for performance considerations on iPhone 4 */
@@ -22,6 +22,10 @@
 
 .coursesCard .bg2 {
     background: url('../img/bg2.png') bottom;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     opacity: .7;
     -webkit-transition: 0.5s all cubic-bezier(.42,1.14,.56,1.06);
     top: 0;

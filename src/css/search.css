@@ -33,7 +33,7 @@
     width: 100%;
     display: block;
     overflow: hidden;
-    padding: 20px 0 20px 20px;
+    padding: 20px;
     /*background-color: rgba(0, 0, 0, 0.3);*/
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     /*-webkit-transition: 0.3s background-color;*/
@@ -69,7 +69,6 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    width: 610px;
     font-weight: 300;
 }
 
@@ -125,7 +124,7 @@
     color: white;
     border-radius: 8px;
     border: none;
-    width: 580px;
+    width: calc(100% - 60px);
     padding: 10px 10px 10px 60px;
     font-size: 24px;
     font-weight: 400;
