@@ -2,8 +2,16 @@ SU-Scheduler
 ============
 Parses Sabanci University's BannerWeb course website and transforms it into JSON.
 
+API Paths
+---------
 
-Dependencies
+	get 'api/courses/:courseId/comments' 
+
+	post 'api/courses/:courseId/comments'
+
+	Accessible variables: nickname:string commentText:text
+
+Crawler Dependencies
 ------------
 
 Nokogiri >=1.6.0
