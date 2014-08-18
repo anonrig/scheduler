@@ -28,8 +28,12 @@ img.logo {
     font-weight: 500;
     margin-bottom: 15px;
     top: -40px;
-
 }
+
+.loginCarousel .item img {
+    max-height: 60%;
+}
+
 .loginCarousel .items .itemInfo {
     margin: 0 auto;
     text-align: center;
@@ -46,7 +50,7 @@ img.logo {
 
 .pager {
     text-align: center;
-    top: 0px;
+    bottom: 10px;
 }
 
 .pager span {
