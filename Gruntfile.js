@@ -125,7 +125,7 @@ module.exports = function(grunt) {
                 tokens:[{
                     token:"<scripts/>",
                     string:'<script type="text/javascript" src="js/library/fastclick.js"></script>' +
-                        '<script type="text/javascript" src="phonegap.js"></script>' +
+                        '<script type="text/javascript" src="cordova.js"></script>' +
                         '<script type="text/javascript" src="js/library/tartJS/third_party/goog/goog/base.js"></script>' +
                         '<script type="text/javascript" src="js/deps.js"></script>' +
                         '<script type="text/javascript" src="js/sc/db.js"></script>' +
@@ -148,7 +148,7 @@ module.exports = function(grunt) {
                 output:"www/index.html",
                 tokens:[{
                     token:"<scripts/>",
-                    string: '<script type="text/javascript" src="phonegap.js"></script>' +
+                    string: '<script type="text/javascript" src="cordova.js"></script>' +
                         '<script type="text/javascript" src="js/sc/db.js"></script>' +
                         '<script type="text/javascript" src="js/compiled.js"></script>'
                 }, {
