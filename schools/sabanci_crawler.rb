@@ -68,7 +68,7 @@ items.css('tr').each_cons(2) do |row_pair|
 			if tds.count > 0
 				tds.each_slice(tds.count) do |item|
 					information = Hash.new
-					dayCount = item[2].text
+					dayCount = item[2].text[0,1]
 					information['location'] = item[3].text.gsub("Fac.of Arts and Social Sci.", "FASS").gsub("School of Management", "FMAN").gsub("Fac. of Engin. and Nat. Sci.", "FENS").gsub("School of Languages Building", "SL")
 					information['teacher'] = item[6].text.gsub(" (P)", "")
 
