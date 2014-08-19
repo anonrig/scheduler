@@ -267,7 +267,7 @@
 
 .schedule.view .day {
     float: left;
-    width: 120px;
+    width: calc(100% / 5);
     text-align: center;
     min-height: calc(100% + 1px);
 }
