@@ -46,7 +46,6 @@ sc.components.Login.Controller.prototype.go = function(amount) {
 };
 
 sc.components.Login.Controller.prototype.login = function() {
-    console.log(1);
     sc.Registry.get('navigationBar').setConfig({
         title: 'Hello',
         type: 'Search',
