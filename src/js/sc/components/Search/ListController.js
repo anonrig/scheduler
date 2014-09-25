@@ -85,7 +85,7 @@ sc.components.Search.ListController.prototype.bindEvents = function() {
 
         if (input.value) {
             this.view.enableClearButton(true);
-            if (input.value.length > 2) {
+            if (input.value.length >= 2) {
                 this.searchTimer = setTimeout(function() {
                     that.view.list(search(input.value));
                 }, 10);

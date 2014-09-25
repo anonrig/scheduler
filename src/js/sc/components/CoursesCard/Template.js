@@ -85,7 +85,7 @@ sc.components.CoursesCard.Template.prototype.item = function(item) {
  * @private
  */
 sc.components.CoursesCard.Template.prototype.formatDate_ = function(date, long) {
-    var pattern = 'H:mm';
-    if (long) pattern = 'EE ' + pattern;
+    var pattern = long ? 'EE H:mm' : 'H:mm';
+
     return tart.date.formatMilliseconds(date, pattern, goog.i18n.TimeZone.createTimeZone(-120));
 };

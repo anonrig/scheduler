@@ -66,7 +66,7 @@ sc.components.Search.Template.prototype.search = function() {
     return '<div class="search">' +
             '<i class="icon-search"></i>' +
             '<form name="search">' +
-                '<input type="text" class="search" placeholder="Type at least 3 letters to search" />' +
+                '<input type="text" class="search" placeholder="Type at least 2 letters to search" />' +
             '</form>' +
             '<div class="clear" style="display: none"><i class="icon-close"></i></div>' +
         '</div>';
