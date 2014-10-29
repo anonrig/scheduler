@@ -501,6 +501,7 @@ menu i {
 .searchList {
     padding-top: 88px;
     -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
 }
 
 .device .searchList.view {
@@ -524,7 +525,9 @@ menu i {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     /*-webkit-transition: 0.3s background-color;*/
     -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
     -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
 }
 
 .searchList .item .icon {
@@ -619,6 +622,7 @@ menu i {
 
 .detail.view {
     -webkit-transform: translate3d(200%,0, 0);
+    transform: translate3d(100%,0,0);
 }
 
 .detail.view {
@@ -743,6 +747,7 @@ menu i {
     bottom: 0;
     overflow: scroll;
     padding: 0 20px 20px 20px;
+    width: 100%;
 }
 
 .schedule.view .titles {

@@ -4,8 +4,7 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="viewport" content="user-scalable=no, initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, width=device-width, height=device-height" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5" media="(device-height: 568px)" />
+        <meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, width=640" />
         <link rel="stylesheet" type="text/css" href="css/compiled.css" />
         <title>Scheduler</title>
     </head>
@@ -46,6 +45,10 @@ cfg.API_PATH = 'http://82.196.8.223';
             }
 
             document.body.classList.add(cfg.ENV);
+
+            if (typeof device != "undefined") {
+                document.body.classList.add(device.platform);
+            }
         </script>
     </body>
 </html>

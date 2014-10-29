@@ -12,6 +12,7 @@
 /Users/anonrig/Developer/scheduler/platforms/android/res/drawable-port-mdpi/screen.png \
 /Users/anonrig/Developer/scheduler/platforms/android/res/drawable-port-xhdpi/screen.png \
 /Users/anonrig/Developer/scheduler/platforms/android/res/drawable-xhdpi/icon.png \
+/Users/anonrig/Developer/scheduler/platforms/android/res/drawable-xxhdpi/icon.png \
 /Users/anonrig/Developer/scheduler/platforms/android/res/values/strings.xml \
 /Users/anonrig/Developer/scheduler/platforms/android/res/xml/config.xml \
 /Users/anonrig/Developer/scheduler/platforms/android/ant-build/res/drawable/icon.png \
@@ -27,6 +28,7 @@
 /Users/anonrig/Developer/scheduler/platforms/android/ant-build/res/drawable-port-mdpi/screen.png \
 /Users/anonrig/Developer/scheduler/platforms/android/ant-build/res/drawable-port-xhdpi/screen.png \
 /Users/anonrig/Developer/scheduler/platforms/android/ant-build/res/drawable-xhdpi/icon.png \
+/Users/anonrig/Developer/scheduler/platforms/android/ant-build/res/drawable-xxhdpi/icon.png \
 /Users/anonrig/Developer/scheduler/platforms/android/assets/_where-is-www.txt \
 /Users/anonrig/Developer/scheduler/platforms/android/assets/www \
 /Users/anonrig/Developer/scheduler/platforms/android/assets/www/config.xml \
