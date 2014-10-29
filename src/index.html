@@ -42,6 +42,10 @@
             }
 
             document.body.classList.add(cfg.ENV);
+
+            if (typeof device != "undefined") {
+                document.body.classList.add(device.platform);
+            }
         </script>
     </body>
 </html>
