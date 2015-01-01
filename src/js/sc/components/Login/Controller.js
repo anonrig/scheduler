@@ -14,8 +14,6 @@ sc.components.Login.Controller = function() {
     goog.base(this);
 
     this.activeItem = 0;
-
-
 };
 goog.inherits(sc.components.Login.Controller, tart.components.mobile.Controller);
 
@@ -32,6 +30,7 @@ sc.components.Login.Controller.prototype.bindEvents = function() {
     goog.events.listen(itemsContainer, tart.events.EventType.SWIPE_LEFT, function() {
         this.go(1);
     }, false, this);
+
     goog.events.listen(itemsContainer, tart.events.EventType.SWIPE_RIGHT, function() {
         this.go(-1);
     }, false, this);
